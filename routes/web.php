@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/home', function () {
+    $user = Auth::user();
+    $roles = $user->roles->pluck('name'); // Mengambil nama role
+    return view('home', compact('roles'));
+})->middleware(['auth'])->name('home');
 
 require __DIR__.'/auth.php';

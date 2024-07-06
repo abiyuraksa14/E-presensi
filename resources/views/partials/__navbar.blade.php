@@ -33,7 +33,7 @@
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
               <li class="dropdown-header">
                 You have 4 new notifications
-                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                <a href="#"><span class="p-2 badge rounded-pill bg-primary ms-2">View all</span></a>
               </li>
               <li>
                 <hr class="dropdown-divider">
@@ -108,7 +108,7 @@
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
               <li class="dropdown-header">
                 You have 3 new messages
-                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                <a href="#"><span class="p-2 badge rounded-pill bg-primary ms-2">View all</span></a>
               </li>
               <li>
                 <hr class="dropdown-divider">
@@ -168,13 +168,16 @@
 
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
               <img src="{{asset('template/assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
-              <span class="d-none d-md-block dropdown-toggle ps-2"><p>{{Auth()->user()->name}}</p></span>
+              <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth()->user()->name}}</span>
             </a><!-- End Profile Iamge Icon -->
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
-                <h6><p>{{Auth()->user()->name}}</p></h6>
-                <span>{{Auth()->user()->role}}</span>
+                <h6>{{Auth()->user()->name}}</h6>
+                @foreach($roles as $role)
+                <span>{{ $role }}</span>
+               @endforeach
+
               </li>
               <li>
                 <hr class="dropdown-divider">
@@ -211,7 +214,7 @@
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="\login">
+                <a class="dropdown-item d-flex align-items-center" href="#">
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Sign Out</span>
                 </a>
