@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\MahasiswaController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -27,5 +27,46 @@ Route::get('/home', function () {
     $roles = $user->roles->pluck('name'); // Mengambil nama role
     return view('home', compact('roles'));
 })->middleware(['auth'])->name('home');
+
+Route::get('/', function(){
+    return redirect('/login');
+});
+
+
+Route::get('/data-mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::get('/data-mahasiswa/create', [MahasiswaController::class, 'create']);
+Route::post('/data-mahasiswa/create', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+Route::get('/data-mahasiswa/edit/{user}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+Route::post('/data-mahasiswa/update/{user}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+Route::get('/data-mahasiswa/delete/{user}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete');
+
+Route::get('/data-dosen', [DosenController::class, 'index'])->name('dosen.index');
+Route::get('/data-dosen/create', [DosenController::class, 'create']);
+Route::post('/data-dosen/create', [DosenController::class, 'store'])->name('dosen.store');
+Route::get('/data-dosen/edit/{user}', [DosenController::class, 'edit'])->name('dosen.edit');
+Route::post('/data-dosen/update/{user}', [DosenController::class, 'update'])->name('dosen.update');
+Route::get('/data-dosen/delete/{user}', [DosenController::class, 'destroy'])->name('dosen.delete');
+
+
+
+Route::get('/data-admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/data-admin/create', [AdminController::class, 'create']);
+Route::post('/data-admin/create', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/data-admin/edit/{user}', [AdminController::class, 'edit'])->name('admin.edit');
+Route::post('/data-admin/update/{user}', [AdminController::class, 'update'])->name('admin.update');
+Route::get('/data-admin/delete/{user}', [AdminController::class, 'destroy'])->name('admin.delete');
+
+
+
+
+Route::get('/data-matkul', function(){
+    return view('dashboard/matkul/index');
+});
+
+
+Route::get('/data-jadwal', function(){
+    return view('dashboard/jadwal/index');
+});
+
 
 require __DIR__.'/auth.php';
