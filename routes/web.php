@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\MatkulController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -57,11 +58,12 @@ Route::post('/data-admin/update/{user}', [AdminController::class, 'update'])->na
 Route::get('/data-admin/delete/{user}', [AdminController::class, 'destroy'])->name('admin.delete');
 
 
-
-
-Route::get('/data-matkul', function(){
-    return view('dashboard/matkul/index');
-});
+Route::get('/data-matkul', [MatkulController::class, 'index'])->name('matkul.index');
+Route::get('/data-matkul/create', [MatkulController::class, 'create']);
+Route::post('/data-matkul/create', [MatkulController::class, 'store'])->name('matkul.store');
+Route::get('/data-matkul/edit/{user}', [MatkulController::class, 'edit'])->name('matkul.edit');
+Route::post('/data-matkul/update/{user}', [MatkulController::class, 'update'])->name('matkul.update');
+Route::get('/data-matkul/delete/{user}', [MatkulController::class, 'destroy'])->name('matkul.delete');
 
 
 Route::get('/data-jadwal', function(){

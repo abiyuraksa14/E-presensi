@@ -13,7 +13,7 @@ class CreateMatakuliahTable extends Migration
      */
     public function up()
     {
-        Schema::create('matakuliah', function (Blueprint $table) {
+        Schema::create('matakuliahs', function (Blueprint $table) {
             $table->id();
             $table->string('kd_matkul')->unique();
             $table->string('nama_matkul');

@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>Tabel Mata Kuliah</h1>
+      <h1>Tabel Matkul</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Mata Kuliah</li>
+          <li class="breadcrumb-item active">Matkul</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -16,55 +16,41 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table matakuliah</h5>
-
+              <h5 class="card-title">Table Matkul</h5>
+              <a href="data-matkul/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Matkul</a>
+                <br><br>
               <!-- Table with hoverable rows -->
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">id Matkul</th>
+                    <th scope="col">Nama Matkul</th>
+                    <th scope="col">Kode Matkul</th>
+                    <th scope="col">SKS</th>
+                    <th scope="col">Ruangan</th>
+                    <th scope="col">Durasi</th>
+                    <th scope="col">Nama Dosen</th>
+                    <th scope="col">NIDN</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                  </tr>
+                    @foreach($dataMatkul as $matkul)
+                    <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>{{$matkul->nama_matkul}}</td>
+                        <td>{{$matkul->kd_matkul}}</td>
+                        <td>{{$matkul->sks}}</td>
+                        <td>{{$matkul->ruangan}}</td>
+                        <td>{{$matkul->durasi}}</td>
+                        <td>{{$matkul->dosen->name}}</td>
+                        <td>{{$matkul->dosen->username}}</td>
+                        <td>
+                            <a href="data-matkul/edit/{{$matkul->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
+                            <a href="data-matkul/delete/{{$matkul->id}}"><i class="bi bi-eraser-fill"></i></a>
+                        </td>
+                    </tr>
+               @endforeach
                 </tbody>
               </table>
               <!-- End Table with hoverable rows -->

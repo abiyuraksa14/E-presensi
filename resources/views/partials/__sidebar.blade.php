@@ -25,22 +25,17 @@
                 </a>
             </li>
             <li>
-                <a href="/data-kaprodi">
-                    <i class="bi bi-circle"></i><span>Tabel Kaprodi</span>
-                </a>
-            </li>
-            <li>
                 <a href="/data-admin">
                     <i class="bi bi-circle"></i><span>Tabel admin</span>
                 </a>
             </li>
             <li>
-                <a href="/data-admin">
+                <a href="/data-matkul">
                     <i class="bi bi-circle"></i><span>Tabel mata kuliah</span>
                 </a>
             </li>
             <li>
-                <a href="/data-admin">
+                <a href="/data-jadwal">
                     <i class="bi bi-circle"></i><span>Tabel jadwal</span>
                 </a>
             </li>

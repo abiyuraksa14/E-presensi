@@ -38,4 +38,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function matkul()
+    {
+        return $this->hasMany(Matakuliah::class, 'nidn_id', 'id');
+    }
 }

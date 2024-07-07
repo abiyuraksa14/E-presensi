@@ -49,12 +49,7 @@ class DosenController extends Controller
     }
     public function update(Request $request, User $user)
     {
-        $request->validate([
-            'username' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-        ]);
+
         $user->update([
             'username' => $request['username'],
             'name' => $request['name'],
