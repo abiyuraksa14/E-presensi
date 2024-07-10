@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>Tabel Admin</h1>
+      <h1>TABEL ADMIN</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item">Tabel</li>
           <li class="breadcrumb-item active">Admin</li>
         </ol>
       </nav>
@@ -16,8 +16,8 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table Admin</h5>
-              <a href="data-admin/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Admin</a>
+              <h5 class="card-title">TABEL ADMIN</h5>
+              <a href="data-admin/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
               <br><br>
 
               <!-- Table with hoverable rows -->
@@ -25,10 +25,10 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">USERNAME</th>
+                    <th scope="col">NAMA</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody>

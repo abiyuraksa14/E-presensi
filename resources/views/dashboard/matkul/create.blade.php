@@ -7,43 +7,43 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">General Form Elements</h5>
+            <h5 class="card-title">TABEL MATA KULIAH</h5>
 
             <!-- General Form Elements -->
             <form action="{{ route('matkul.store') }}" method="POST">
                 @csrf
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Id Matkul</label>
+                <label for="inputText" class="col-sm-2 col-form-label">ID MATA KULIAH</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="id_matkul">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Nama Matkul</label>
+                <label for="inputText" class="col-sm-2 col-form-label">NAMA MATA KULIAH</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="nama_matkul">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Kode Matkul</label>
+                <label for="inputText" class="col-sm-2 col-form-label">KODE MATA KULIAH</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="kd_matkul">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Sks</label>
+                <label for="inputText" class="col-sm-2 col-form-label">SKS</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="sks">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Ruangan</label>
+                <label for="inputText" class="col-sm-2 col-form-label">RUANGAN</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="ruangan">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Durasi</label>
+                <label for="inputText" class="col-sm-2 col-form-label">DURASI</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="durasi">
                 </div>

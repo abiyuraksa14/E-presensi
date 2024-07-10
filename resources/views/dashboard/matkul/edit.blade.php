@@ -7,25 +7,25 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">General Form Elements</h5>
+            <h5 class="card-title">TABEL MATA KULIAH</h5>
 
             <!-- General Form Elements -->
             <form action="/data-matkul/update/{{$user->id}}" method="POST">
                 @csrf
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Id Matkul</label>
+                <label for="inputText" class="col-sm-2 col-form-label">ID MATA KULIAH</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="id_matkul" value="{{$user->id_matkul}}">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Nama Matkul</label>
+                <label for="inputText" class="col-sm-2 col-form-label">NAMA MATA KULIAH</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="nama_matkul" value="{{$user->nama_matkul}}">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Kode Matkul</label>
+                <label for="inputText" class="col-sm-2 col-form-label">KODE MATA KULIAH</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="kd_matkul" value="{{$user->kd_matkul}}">
                 </div>
@@ -37,19 +37,19 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputtext" class="col-sm-2 col-form-label">Ruangan</label>
+                <label for="inputtext" class="col-sm-2 col-form-label">RUANGAN</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="ruangan" value="{{$user->ruangan}}">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputtext" class="col-sm-2 col-form-label">Durasi</label>
+                <label for="inputtext" class="col-sm-2 col-form-label">DURASI</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="durasi" value="{{$user->durasi}}">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputtext" class="col-sm-2 col-form-label">Dosen Pengampu</label>
+                <label for="inputtext" class="col-sm-2 col-form-label">DOSEN PENGAMPU</label>
                 <div class="col-sm-10">
                   <select name="nidn_id" id="nidn_id" class="form-control">
                     <option value="{{$user->nidn_id}}">{{$user->dosen->username}} - {{$user->dosen->name}}</option>

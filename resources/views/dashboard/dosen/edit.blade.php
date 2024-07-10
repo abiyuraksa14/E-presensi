@@ -7,7 +7,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">General Form Elements</h5>
+            <h5 class="card-title">TABEL DOSEN</h5>
 
             <!-- General Form Elements -->
             <form action="/data-dosen/update/{{$user->id}}" method="POST">
@@ -19,19 +19,19 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                <label for="inputText" class="col-sm-2 col-form-label">NAMA</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="name" value="{{$user->name}}">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                <label for="inputEmail" class="col-sm-2 col-form-label">EMAIL</label>
                 <div class="col-sm-10">
                   <input type="email" class="form-control" name="email" value="{{$user->email}}">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <label for="inputPassword" class="col-sm-2 col-form-label">PASSWORD</label>
                 <div class="col-sm-10">
                   <input type="password" class="form-control" name="password" placeholder="Silahkan input password">
                 </div>
@@ -40,7 +40,7 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">SUBMIT</button>
                 </div>
               </div>
 

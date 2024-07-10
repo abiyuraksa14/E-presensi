@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jadwal;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,14 +10,14 @@ class JadwalController extends Controller
 {
     public function index()
     {
-        $datajadwal = JadwalController::all();
+        $datajadwal = Jadwal::all();
         return view('dashboard.jadwal.index', compact('datajadwal'));
     }
 
     public function create()
     {
         $jadwal = User::role('jadwal')->get();
-        return view('dashboard.jadwal.create',compact('jadwal$jadwal'));
+        return view('dashboard.jadwal.create',compact('datajadwal'));
     }
 
     public function store(Request $request)
@@ -30,7 +31,7 @@ class JadwalController extends Controller
             'tahun_akademik' => 'required',
             'jumlah_peserta' => 'required'
         ]);
-        $jadwal= JadwalController::create([
+        $jadwal= Jadwal::create([
             'id_jadwal' => $request['id_jadwal'],
             'hari' => $request['hari'],
             'jam_mulai' => $request['jam_mulai'],
@@ -50,7 +51,7 @@ class JadwalController extends Controller
         return view('users.show', compact('user'));
     }
 
-    public function edit(JadwalController $user)
+    public function edit(Jadwal $user)
     {
         $jadwal = User::role('jadwal$jadwal')->get();
         return view('dashboard.jadwal.edit', compact('user', 'jadwal$jadwal'));

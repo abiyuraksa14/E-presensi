@@ -175,7 +175,7 @@
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
                 <h6>{{Auth()->user()->name}}</h6>
-                <span>{{ Auth::user()->roles->pluck('name') }}</span>
+                <span>{{Auth::user()->roles->pluck('name')}}</span>
               </li>
 
               <li>

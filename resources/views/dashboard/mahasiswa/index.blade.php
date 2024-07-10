@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>Tabel Mahasiswa</h1>
+      <h1>TABEL MAHASISWA</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -16,8 +16,8 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table mahasiswa</h5>
-              <a href="data-mahasiswa/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Mahasiswa</a>
+              <h5 class="card-title">TABEL MAHASISWA</h5>
+              <a href="data-mahasiswa/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
                 <br><br>
               <!-- Table with hoverable rows -->
               <table class="table table-hover">
@@ -25,9 +25,9 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">NIM</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">NAMA</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody>

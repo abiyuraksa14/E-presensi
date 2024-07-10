@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>Tabel Matkul</h1>
+      <h1>TABEL MATAKULIAH</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Matkul</li>
+          <li class="breadcrumb-item">Tabel</li>
+          <li class="breadcrumb-item active">Matakuliah</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -16,22 +16,22 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table Matkul</h5>
-              <a href="data-matkul/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Matkul</a>
+              <h5 class="card-title">TABEL MATA KULIAH</h5>
+              <a href="data-matkul/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
                 <br><br>
               <!-- Table with hoverable rows -->
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">id Matkul</th>
-                    <th scope="col">Nama Matkul</th>
-                    <th scope="col">Kode Matkul</th>
+                    <th scope="col">ID MATA KULIAH</th>
+                    <th scope="col">NAMA MATA KULIAH</th>
+                    <th scope="col">KODE MATA KULIAH</th>
                     <th scope="col">SKS</th>
-                    <th scope="col">Ruangan</th>
-                    <th scope="col">Durasi</th>
-                    <th scope="col">Nama Dosen</th>
+                    <th scope="col">RUANGAN</th>
+                    <th scope="col">DURASI</th>
+                    <th scope="col">NAMA DOSEN</th>
                     <th scope="col">NIDN</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody>

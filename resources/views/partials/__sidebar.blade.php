@@ -2,7 +2,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="/home">
             <i class="bi bi-grid"></i>
             <span>Dashboard</span>
         </a>
@@ -26,17 +26,17 @@
             </li>
             <li>
                 <a href="/data-admin">
-                    <i class="bi bi-circle"></i><span>Tabel admin</span>
+                    <i class="bi bi-circle"></i><span>Tabel Admin</span>
                 </a>
             </li>
             <li>
                 <a href="/data-matkul">
-                    <i class="bi bi-circle"></i><span>Tabel mata kuliah</span>
+                    <i class="bi bi-circle"></i><span>Tabel Mata Kuliah</span>
                 </a>
             </li>
             <li>
                 <a href="/data-jadwal">
-                    <i class="bi bi-circle"></i><span>Tabel jadwal</span>
+                    <i class="bi bi-circle"></i><span>Tabel Jadwal</span>
                 </a>
             </li>
             <li>
