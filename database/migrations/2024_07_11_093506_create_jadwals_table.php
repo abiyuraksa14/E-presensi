@@ -16,10 +16,10 @@ class CreateJadwalsTable extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
             $table->string('hari');
-            $table->integer('jam_mulai');
-            $table->integer('jam_akhir');
+            $table->time('jam_mulai');
+            $table->time('jam_akhir');
             $table->unsignedBigInteger('id_matkul');
-            $table->dateTime('tahun_akademik');
+            $table->string('tahun_akademik');
             $table->integer('jumlah_peserta');
             $table->timestamps();
 

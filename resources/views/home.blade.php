@@ -32,8 +32,8 @@
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>2</h6>
-
+                                    <h6>8</h6>
+                                    <p>Jumlah Mahasiswa</p>
                                 </div>
                             </div>
                         </div>
@@ -46,17 +46,14 @@
                     <div class="card info-card revenue-card">
                         <div class="card-body">
                             <h5 class="card-title"> Dosen </h5>
-
                             <div class="d-flex align-items-center">
                                 <div
                                     class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>6</h6>
-
-
-
+                                    <h6>3</h6>
+                                    <p>Jumlah Dosen</p>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +74,7 @@
                                 </div>
                                 <div class="ps-3">
                                     <h6>1244</h6>
-
+                                    <p>Jumlah Mahasiswa</p>
                                 </div>
                             </div>
 
