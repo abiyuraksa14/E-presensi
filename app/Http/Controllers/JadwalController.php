@@ -16,8 +16,8 @@ class JadwalController extends Controller
 
     public function create()
     {
-        $jadwal = User::role('jadwal')->get();
-        return view('dashboard.jadwal.create',compact('datajadwal'));
+        $dosen = User::role('dosen')->get();
+        return view('dashboard.jadwal.create',compact('dosen'));
     }
 
     public function store(Request $request)
@@ -53,8 +53,8 @@ class JadwalController extends Controller
 
     public function edit(Jadwal $user)
     {
-        $jadwal = User::role('jadwal$jadwal')->get();
-        return view('dashboard.jadwal.edit', compact('user', 'jadwal$jadwal'));
+        $jadwal = User::role('dosen')->get();
+        return view('dashboard.jadwal.edit', compact('user', 'dosen'));
     }
     public function update(Request $request, Jadwal $user)
     {
