@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulController;
 use App\Models\User;
@@ -65,10 +66,13 @@ Route::get('/data-matkul/edit/{user}', [MatkulController::class, 'edit'])->name(
 Route::post('/data-matkul/update/{user}', [MatkulController::class, 'update'])->name('matkul.update');
 Route::get('/data-matkul/delete/{user}', [MatkulController::class, 'destroy'])->name('matkul.delete');
 
+Route::get('/data-jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+Route::get('/data-jadwal/create', [JadwalController::class, 'create']);
+Route::post('/data-jadwal/create', [JadwalController::class, 'store'])->name('jadwal.store');
+Route::get('/data-jadwal/edit/{user}', [JadwalController::class, 'edit'])->name('jadwal.edit');
+Route::post('/data-jadwal/update/{user}', [JadwalController::class, 'update'])->name('jadwal.update');
+Route::get('/data-jadwal/delete/{user}', [JadwalController::class, 'destroy'])->name('jadwal.delete');
 
-Route::get('/data-jadwal', function(){
-    return view('dashboard/jadwal/index');
-});
 
 
 require __DIR__.'/auth.php';
