@@ -24,16 +24,16 @@
                   <input type="text" class="form-control" name="hari">
                 </div>
               </div>
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">jam_mulai</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="jam_mulai">
-                </div>
+                <div class="row mb-3">
+                    <label for="jam_mulai" class="col-sm-2 col-form-label">jam_mulai</label>
+                    <div class="col-sm-10">
+                    <input type="time" class="form-control" name="jam_mulai">
+                    </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">jam_akhir</label>
+                <label for="jam_akhir" class="col-sm-2 col-form-label">jam_akhir</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="jam_akhir">
+                  <input type="time" class="form-control" name="jam_akhir">
                 </div>
               </div>
               <div class="row mb-3">

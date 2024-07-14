@@ -37,7 +37,6 @@
                     @foreach($datajadwal as $jadwal)
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
-                        <td>{{$jadwal->id_jadwal}}</td>
                         <td>{{$jadwal->hari}}</td>
                         <td>{{$jadwal->jam_mulai}}</td>
                         <td>{{$jadwal->jam_akhir}}</td>

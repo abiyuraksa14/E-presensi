@@ -19,7 +19,7 @@ class CreateJadwalsTable extends Migration
             $table->time('jam_mulai');
             $table->time('jam_akhir');
             $table->unsignedBigInteger('id_matkul');
-            $table->string('tahun_akademik');
+            $table->integer('tahun_akademik');
             $table->integer('jumlah_peserta');
             $table->timestamps();
 
@@ -34,6 +34,10 @@ class CreateJadwalsTable extends Migration
      */
     public function down()
     {
+
+            Schema::table('jadwal', function (Blueprint $table) {
+                $table->dropForeign(['id_matkul']);
+            });
         Schema::dropIfExists('jadwals');
     }
 }

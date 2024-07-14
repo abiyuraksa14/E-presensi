@@ -37,9 +37,9 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">RUANGAN</label>
+                <label for="inputText" class="col-sm-2 col-form-label">semester</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="ruangan">
+                  <input type="text" class="form-control" name="semester">
                 </div>
               </div>
               <div class="row mb-3">

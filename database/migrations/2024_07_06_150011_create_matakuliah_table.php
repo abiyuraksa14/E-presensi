@@ -18,7 +18,7 @@ class CreateMatakuliahTable extends Migration
             $table->string('kd_matkul')->unique();
             $table->string('nama_matkul');
             $table->integer('sks');
-            $table->string('ruangan');
+            $table->string('semester');
             $table->integer('durasi');
             $table->unsignedBigInteger('nidn_id');
             $table->timestamps();

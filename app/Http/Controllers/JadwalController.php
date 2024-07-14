@@ -24,9 +24,9 @@ class JadwalController extends Controller
     {
         $request->validate([
             'id_jadwal' => 'required',
-            'hari' => 'required',
-            'jam_mulai' => 'required',
-            'jam_akhir' => 'required',
+            'hari' => 'required|string',
+            'jam_mulai' => 'required|date_format:H:i',
+            'jam_akhir' => 'required|date_format:H:i',
             'id_matkul' => 'required',
             'tahun_akademik' => 'required',
             'jumlah_peserta' => 'required'
@@ -37,7 +37,7 @@ class JadwalController extends Controller
             'jam_mulai' => $request['jam_mulai'],
             'jam_akhir' => $request['jam_akhir'],
             'id_matkul' => $request['id_matkul'],
-            'tahun_akademik' => $request['tahun_akademik'],
+            'tahun_akademik' => $request['tahun_akademik'] , // Menambahkan waktu default,
             'jumlah_peserta' => $request['jumlah_peserta']
         ]);
 
@@ -53,7 +53,7 @@ class JadwalController extends Controller
 
     public function edit(Jadwal $user)
     {
-        $jadwal = User::role('dosen')->get();
+        $dosen = User::role('dosen')->get();
         return view('dashboard.jadwal.edit', compact('user', 'dosen'));
     }
     public function update(Request $request, Jadwal $user)
@@ -61,12 +61,12 @@ class JadwalController extends Controller
 
         $user->update([
             'id_jadwal' => $request['id_jadwal'],
-            'nama_jadwal' => $request['nama_jadwal'],
-            'kd_jadwal' => $request['kd_jadwal'],
-            'sks' => $request['sks'],
-            'ruangan' => $request['ruangan'],
-            'durasi' => $request['durasi'],
-            'nidn_id' => $request['nidn_id']
+            'hari' => $request['hari'],
+            'jam_mulai' => $request['jam_mulai'|'date_format:H:i'],
+            'jam_akhir' => $request['jam_akhir'|'date_format:H:i'],
+            'id_matkul' => $request['id_matkul'],
+            'tahun_akademik' => $request['tahun_akademik'],
+            'jumlah_peserta' => $request['jumlah_peserta']
         ]);
         return redirect()->route('jadwal.index')
             ->with('success', 'User updated successfully');

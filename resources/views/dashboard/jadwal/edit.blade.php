@@ -25,21 +25,27 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">jam mulai</label>
+                <label for="jam_mulai" class="col-sm-2 col-form-label">jam mulai</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="jam_mulai" value="{{$user->jam_mulai}}">
+                  <input type="time" class="form-control" name="jam_mulai" value="{{$user->jam_mulai}}">
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputtext" class="col-sm-2 col-form-label">jam akhir</label>
+                <label for="jam_akhir" class="col-sm-2 col-form-label">jam akhir</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="jam_akhir" value="{{$user->jam_akhir}}">
+                  <input type="time" class="form-control" name="jam_akhir" value="{{$user->jam_akhir}}">
                 </div>
               </div>
+            <div class="row mb-3">
+              <label for="inputtext" class="col-sm-2 col-form-label">id mata kuliah</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="id_matkul" value="{{$user->id_matkul}}">
+              </div>
+            </div>
               <div class="row mb-3">
                 <label for="inputtext" class="col-sm-2 col-form-label">tahun akdemik</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="tahun_akademik" value="{{$user->tahun_akademik}}">
+                  <input type="datetime-local" class="form-control" name="tahun_akademik" value="{{$user->tahun_akademik}}">
                 </div>
               </div>
               <div class="row mb-3">

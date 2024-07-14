@@ -37,9 +37,9 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputtext" class="col-sm-2 col-form-label">RUANGAN</label>
+                <label for="inputtext" class="col-sm-2 col-form-label">SEMESTER</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="ruangan" value="{{$user->ruangan}}">
+                  <input type="text" class="form-control" name="semester" value="{{$user->semester}}">
                 </div>
               </div>
               <div class="row mb-3">

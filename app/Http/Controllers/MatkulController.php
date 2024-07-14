@@ -27,7 +27,7 @@ class MatkulController extends Controller
             'nama_matkul' => 'required',
             'kd_matkul' => 'required',
             'sks' => 'required',
-            'ruangan' => 'required',
+            'semester' => 'required',
             'durasi' => 'required',
             'nidn_id' => 'required'
         ]);
@@ -36,7 +36,7 @@ class MatkulController extends Controller
             'nama_matkul' => $request['nama_matkul'],
             'kd_matkul' => $request['kd_matkul'],
             'sks' => $request['sks'],
-            'ruangan' => $request['ruangan'],
+            'semester' => $request['semester'],
             'durasi' => $request['durasi'],
             'nidn_id' => $request['nidn_id']
         ]);
@@ -64,7 +64,7 @@ class MatkulController extends Controller
             'nama_matkul' => $request['nama_matkul'],
             'kd_matkul' => $request['kd_matkul'],
             'sks' => $request['sks'],
-            'ruangan' => $request['ruangan'],
+            'semester' => $request['semester'],
             'durasi' => $request['durasi'],
             'nidn_id' => $request['nidn_id']
         ]);

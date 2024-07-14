@@ -27,7 +27,7 @@
                     <th scope="col">NAMA MATA KULIAH</th>
                     <th scope="col">KODE MATA KULIAH</th>
                     <th scope="col">SKS</th>
-                    <th scope="col">RUANGAN</th>
+                    <th scope="col">SEMESTER</th>
                     <th scope="col">DURASI</th>
                     <th scope="col">NAMA DOSEN</th>
                     <th scope="col">NIDN</th>
@@ -41,7 +41,7 @@
                         <td>{{$matkul->nama_matkul}}</td>
                         <td>{{$matkul->kd_matkul}}</td>
                         <td>{{$matkul->sks}}</td>
-                        <td>{{$matkul->ruangan}}</td>
+                        <td>{{$matkul->semester}}</td>
                         <td>{{$matkul->durasi}}</td>
                         <td>{{$matkul->dosen->name}}</td>
                         <td>{{$matkul->dosen->username}}</td>

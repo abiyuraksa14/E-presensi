@@ -10,7 +10,7 @@ class Matakuliah extends Model
     use HasFactory;
     protected $table = 'matakuliahs';
     protected $fillable = [
-        'kd_matkul', 'nama_matkul', 'sks', 'ruangan', 'durasi', 'nidn_id'
+        'kd_matkul', 'nama_matkul', 'sks', 'semester', 'durasi', 'nidn_id'
     ];
 
     public function dosen()
