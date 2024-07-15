@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="forms-layouts.html">
+                <a href="/data-jadwal">
                     <i class="bi bi-circle"></i><span>Buat Barcode</span>
                 </a>
             </li>

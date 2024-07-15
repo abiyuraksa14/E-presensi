@@ -43,34 +43,25 @@ class JadwalController extends Controller
             'jumlah_peserta' => $request['jumlah_peserta']
         ]);
 
-        return redirect()->route('data-jadwal.index')
+        return redirect()->route('jadwal.index')
             ->with('success', 'Jadwal created successfully.');
     }
 
-    public function show(Jadwal $jadwal)
+    public function show(user $user)
     {
-        return view('dashboard.jadwal.show', compact('jadwal'));
+        return view('dashboard.jadwal.show', compact('user'));
     }
 
     public function edit(Jadwal $jadwal)
     {
         $dosen = User::role('dosen')->get();
-        return view('dashboard.jadwal.edit', compact('jadwal', 'dosen'));
+        return view('dashboard.jadwal.edit', compact('user', 'dosen'));
     }
 
-    public function update(Request $request, Jadwal $jadwal)
+    public function update(Request $request, Jadwal $user)
     {
-        $request->validate([
-            'id_jadwal' => 'required',
-            'hari' => 'required|string',
-            'jam_mulai' => 'required|date_format:H:i',
-            'jam_akhir' => 'required|date_format:H:i',
-            'id_matkul' => 'required',
-            'tahun_akademik' => 'required',
-            'jumlah_peserta' => 'required'
-        ]);
 
-        $jadwal->update([
+        $user->update([
             'id_jadwal' => $request['id_jadwal'],
             'hari' => $request['hari'],
             'jam_mulai' => $request['jam_mulai'],
@@ -80,13 +71,13 @@ class JadwalController extends Controller
             'jumlah_peserta' => $request['jumlah_peserta']
         ]);
 
-        return redirect()->route('data-jadwal.index')
+        return redirect()->route('jadwal.index')
             ->with('success', 'Jadwal updated successfully');
     }
 
-    public function destroy(Jadwal $jadwal)
+    public function destroy(Jadwal $user)
     {
-        $jadwal->delete();
+        $user->delete();
         return redirect()->route('data-jadwal.index')
             ->with('success', 'Jadwal deleted successfully');
     }
