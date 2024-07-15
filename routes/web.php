@@ -66,13 +66,12 @@ Route::get('/data-matkul/edit/{user}', [MatkulController::class, 'edit'])->name(
 Route::post('/data-matkul/update/{user}', [MatkulController::class, 'update'])->name('matkul.update');
 Route::get('/data-matkul/delete/{user}', [MatkulController::class, 'destroy'])->name('matkul.delete');
 
-Route::get('/data-jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
-Route::get('/data-jadwal/create', [JadwalController::class, 'create']);
+Route::get('/data-jadwal', [JadwalController::class, 'index'])->name('data-jadwal.index');
+Route::get('/data-jadwal/create', [JadwalController::class, 'create'])->name('jadwal.create');
 Route::post('/data-jadwal/create', [JadwalController::class, 'store'])->name('jadwal.store');
 Route::get('/data-jadwal/edit/{user}', [JadwalController::class, 'edit'])->name('jadwal.edit');
 Route::post('/data-jadwal/update/{user}', [JadwalController::class, 'update'])->name('jadwal.update');
 Route::get('/data-jadwal/delete/{user}', [JadwalController::class, 'destroy'])->name('jadwal.delete');
-
-
+Route::get('data-jadwal/qrcode/{id}', [JadwalController::class, 'generateQRCode'])->name('data-jadwal.qrcode');
 
 require __DIR__.'/auth.php';

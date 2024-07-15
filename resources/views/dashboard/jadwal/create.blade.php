@@ -54,7 +54,12 @@
                   <input type="text" class="form-control" name="jumlah_peserta">
                 </div>
               </div>
-
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Buat Barcode</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="barcode">
+                </div>
+              </div>
 
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
@@ -62,6 +67,8 @@
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </div>
+
+
 
             </form><!-- End General Form Elements -->
 
