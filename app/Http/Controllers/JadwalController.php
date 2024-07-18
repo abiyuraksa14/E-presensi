@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jadwal;
+use App\Models\Matakuliah;
 use App\Models\User;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
@@ -17,14 +18,13 @@ class JadwalController extends Controller
 
     public function create()
     {
-        $dosen = User::role('dosen')->get();
-        return view('dashboard.jadwal.create',compact('dosen'));
+        $matkul = Matakuliah::all();
+        return view('dashboard.jadwal.create',compact('matkul'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'id_jadwal' => 'required',
             'hari' => 'required|string',
             'jam_mulai' => 'required|date_format:H:i',
             'jam_akhir' => 'required|date_format:H:i',
@@ -34,7 +34,6 @@ class JadwalController extends Controller
         ]);
 
         Jadwal::create([
-            'id_jadwal' => $request['id_jadwal'],
             'hari' => $request['hari'],
             'jam_mulai' => $request['jam_mulai'],
             'jam_akhir' => $request['jam_akhir'],
@@ -54,15 +53,15 @@ class JadwalController extends Controller
 
     public function edit(Jadwal $user)
     {
-        $dosen = User::role('dosen')->get();
-        return view('dashboard.jadwal.edit', compact('user', 'dosen'));
+
+        $matkul = Matakuliah::all();
+        return view('dashboard.jadwal.edit', compact('user', 'matkul'));
     }
 
     public function update(Request $request, Jadwal $user)
     {
 
         $user->update([
-            'id_jadwal' => $request['id_jadwal'],
             'hari' => $request['hari'],
             'jam_mulai' => $request['jam_mulai'],
             'jam_akhir' => $request['jam_akhir'],
@@ -71,14 +70,14 @@ class JadwalController extends Controller
             'jumlah_peserta' => $request['jumlah_peserta']
         ]);
 
-        return redirect()->route('data-jadwal.index')
+        return redirect()->route('jadwal.index')
             ->with('success', 'Jadwal updated successfully');
     }
 
     public function destroy(Jadwal $user)
     {
         $user->delete();
-        return redirect()->route('data-jadwal.index')
+        return redirect()->route('jadwal.index')
             ->with('success', 'Jadwal deleted successfully');
     }
 

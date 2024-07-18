@@ -10,7 +10,7 @@ class ScanController extends Controller
     public function scanQr()
     {
 
-        return view('dashboard.scanqrcode.scan');// Sesuaikan dengan nama file Blade yang Anda gunakan
+        return view('dashboard.presensi.scan');// Sesuaikan dengan nama file Blade yang Anda gunakan
     }
 
     // public function processQr(Request $request)

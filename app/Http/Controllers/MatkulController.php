@@ -23,7 +23,6 @@ class MatkulController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_matkul' => 'required',
             'nama_matkul' => 'required',
             'kd_matkul' => 'required',
             'sks' => 'required',
@@ -32,7 +31,6 @@ class MatkulController extends Controller
             'nidn_id' => 'required'
         ]);
         Matakuliah::create([
-            'id_matkul' => $request['id_matkul'],
             'nama_matkul' => $request['nama_matkul'],
             'kd_matkul' => $request['kd_matkul'],
             'sks' => $request['sks'],
@@ -60,7 +58,6 @@ class MatkulController extends Controller
     {
 
         $user->update([
-            'id_matkul' => $request['id_matkul'],
             'nama_matkul' => $request['nama_matkul'],
             'kd_matkul' => $request['kd_matkul'],
             'sks' => $request['sks'],

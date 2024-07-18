@@ -41,7 +41,7 @@
                         <td>{{ $jadwal->hari }}</td>
                         <td>{{ $jadwal->jam_mulai }}</td>
                         <td>{{ $jadwal->jam_akhir }}</td>
-                        <td>{{ $jadwal->id_matkul }}</td>
+                        <td>{{ $jadwal->matakuliah->nama_matkul }}</td>
                         <td>{{ $jadwal->tahun_akademik }}</td>
                         <td>{{ $jadwal->jumlah_peserta }}</td>
                         <td>

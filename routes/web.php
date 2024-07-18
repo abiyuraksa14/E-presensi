@@ -81,7 +81,7 @@ Route::get('/data-jadwal/qrcode/{id}', [JadwalController::class, 'generateQRCode
 Route::get('/data-scan', [ScanController::class, 'index'])->name('data-scan');
 
 // Rute untuk menampilkan halaman scan QR code
-Route::get('/partials/scan_qr', [ScanController::class, 'scanQr']);
+Route::get('/scan_qr', [ScanController::class, 'scanQr']);
 
 // Rute untuk menghandle proses scan QR code
 Route::post('/scan-qr-process', [ScanController::class, 'processQr'])->name('scan.qr.process');
