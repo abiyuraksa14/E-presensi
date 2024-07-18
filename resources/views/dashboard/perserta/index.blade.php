@@ -17,7 +17,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">TABEL Perserta</h5>
-              <a href="data-mahasiswa/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
+              <a href="data-perserta/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
                 <br><br>
               <!-- Table with hoverable rows -->
               <table class="table table-hover">
@@ -41,8 +41,8 @@
                         <td>{{$perserta->nidn}}</td>
                         <td>{{$perserta->jumlahp}}</td>
                         <td>
-                            <a href="data-mahasiswa/edit/{{$perserta->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
-                            <a href="data-mahasiswa/delete/{{$perserta->id}}"><i class="bi bi-eraser-fill"></i></a>
+                            <a href="data-perserta/edit/{{$perserta->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
+                            <a href="data-perserta/delete/{{$perserta->id}}"><i class="bi bi-eraser-fill"></i></a>
                         </td>
                     </tr>
                @endforeach

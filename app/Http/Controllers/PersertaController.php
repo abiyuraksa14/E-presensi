@@ -23,22 +23,18 @@ class PersertaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_Perserta' => 'required',
-            'nama_Perserta' => 'required',
-            'kd_Perserta' => 'required',
-            'sks' => 'required',
-            'semester' => 'required',
-            'durasi' => 'required',
-            'nidn_id' => 'required'
+            'kd_matkul' => 'required',
+            'nama_mhs' => 'required',
+            'nidn' => 'required',
+            'jumlahp' => 'required'
+
         ]);
         Perserta::create([
-            'id_Perserta' => $request['id_Perserta'],
-            'nama_Perserta' => $request['nama_Perserta'],
-            'kd_Perserta' => $request['kd_Perserta'],
-            'sks' => $request['sks'],
-            'semester' => $request['semester'],
-            'durasi' => $request['durasi'],
-            'nidn_id' => $request['nidn_id']
+            'kd_matkul' => $request['kd_matkul'],
+            'nama_mhs' => $request['nama_mhs'],
+            'nidn' => $request['nidn'],
+            'jumlahp' => $request['jumlahp']
+
         ]);
 
 
@@ -60,13 +56,10 @@ class PersertaController extends Controller
     {
 
         $user->update([
-            'id_Perserta' => $request['id_Perserta'],
-            'nama_Perserta' => $request['nama_Perserta'],
-            'kd_Perserta' => $request['kd_Perserta'],
-            'sks' => $request['sks'],
-            'semester' => $request['semester'],
-            'durasi' => $request['durasi'],
-            'nidn_id' => $request['nidn_id']
+           'kd_matkul' => $request['kd_matkul'],
+            'nama_mhs' => $request['nama_mhs'],
+            'nidn' => $request['nidn'],
+            'jumlahp' => $request['jumlahp']
         ]);
         return redirect()->route('Perserta.index')
             ->with('success', 'User updated successfully');
