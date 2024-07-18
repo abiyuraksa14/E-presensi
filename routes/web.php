@@ -75,6 +75,9 @@ Route::get('/data-jadwal/edit/{user}', [JadwalController::class, 'edit'])->name(
 Route::post('/data-jadwal/update/{user}', [JadwalController::class, 'update'])->name('jadwal.update');
 Route::get('/data-jadwal/delete/{user}', [JadwalController::class, 'destroy'])->name('jadwal.delete');
 Route::get('/data-jadwal/qrcode/{id}', [JadwalController::class, 'generateQRCode'])->name('data-jadwal.qrcode');
+
+
+
 Route::get('/data-scan', [ScanController::class, 'index'])->name('data-scan');
 
 // Rute untuk menampilkan halaman scan QR code

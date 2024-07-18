@@ -63,7 +63,7 @@
             </li>
             <li>
                 <a href="/data-jadwal">
-                    <i class="bi bi-circle"></i><span>Buat Barcode</span>
+                    <i class="bi bi-circle"></i><span>Buka Kelas</span>
                 </a>
             </li>
         </ul>

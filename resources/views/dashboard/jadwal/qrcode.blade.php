@@ -21,7 +21,7 @@
               <h5 class="card-title">QR Code Jadwal</h5>
               <div>{!! $qrcode !!}</div>
               <br>
-             <button> <a href="{{ route('data-jadwal.index') }}">Kembali</a> </button>
+             <button> <a href="data-jadwal.index">Kembali</a> </button>
 
             </div>
           </div>
