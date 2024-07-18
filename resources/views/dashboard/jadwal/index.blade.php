@@ -17,7 +17,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Table Jadwal</h5>
-              <a href="{{ route('jadwal.create') }}" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Tambah Jadwal</a>
+              <a href="data-jadwal/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Tambah Jadwal</a>
                 <br><br>
               <!-- Table with hoverable rows -->
               <table class="table table-hover">
@@ -48,12 +48,8 @@
                             <a href="{{ route('data-jadwal.qrcode', $jadwal->id) }}">Generate QR</a>
                         </td>
                         <td>
-                            <a href="{{ route('jadwal.edit', $jadwal->id) }}"><i class="bi bi-pencil-square"></i></a> &nbsp;
-                            <a href="{{ route('jadwal.delete', $jadwal->id) }}" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $jadwal->id }}').submit();"><i class="bi bi-eraser-fill"></i></a>
-                            <form id="delete-form-{{ $jadwal->id }}" action="{{ route('jadwal.delete', $jadwal->id) }}" method="POST" style="display: none;">
-                                @csrf
-                                @method('DELETE')
-                            </form>
+                            <a href="data-jadwal/edit/{{$jadwal->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
+                            <a href="data-jadwal/delete/{{$jadwal->id}}"><i class="bi bi-eraser-fill"></i></a>
                         </td>
                     </tr>
                     @endforeach

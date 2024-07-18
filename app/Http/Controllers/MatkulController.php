@@ -31,7 +31,7 @@ class MatkulController extends Controller
             'durasi' => 'required',
             'nidn_id' => 'required'
         ]);
-        $matkul= Matakuliah::create([
+        Matakuliah::create([
             'id_matkul' => $request['id_matkul'],
             'nama_matkul' => $request['nama_matkul'],
             'kd_matkul' => $request['kd_matkul'],

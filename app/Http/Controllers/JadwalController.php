@@ -52,7 +52,7 @@ class JadwalController extends Controller
         return view('dashboard.jadwal.show', compact('user'));
     }
 
-    public function edit(Jadwal $jadwal)
+    public function edit(Jadwal $user)
     {
         $dosen = User::role('dosen')->get();
         return view('dashboard.jadwal.edit', compact('user', 'dosen'));
@@ -71,7 +71,7 @@ class JadwalController extends Controller
             'jumlah_peserta' => $request['jumlah_peserta']
         ]);
 
-        return redirect()->route('jadwal.index')
+        return redirect()->route('data-jadwal.index')
             ->with('success', 'Jadwal updated successfully');
     }
 

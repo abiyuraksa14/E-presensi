@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a href="components-breadcrumbs.html">
+                <a href="/data-perserta">
                     <i class="bi bi-circle"></i><span>Tabel Peserta</span>
                 </a>
             </li>
@@ -57,7 +57,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-                <a href="forms-elements.html">
+                <a href="/scan_qr">
                     <i class="bi bi-circle"></i><span>Scan Barcode</span>
                 </a>
             </li>
