@@ -50,6 +50,7 @@
                         <td>
                             <a href="data-jadwal/edit/{{$jadwal->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
                             <a href="data-jadwal/delete/{{$jadwal->id}}"><i class="bi bi-eraser-fill"></i></a>
+                            <a href="data-jadwal/show/{{$jadwal->id_matkul}}">Lihat Peserta</a>
                         </td>
                     </tr>
                     @endforeach

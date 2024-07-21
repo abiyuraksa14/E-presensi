@@ -18,7 +18,10 @@
             <div class="card-body">
               <h5 class="card-title">TABEL Perserta</h5>
               <a href="data-perserta/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
-                <br><br>
+              &nbsp; &nbsp;
+              <a href="/data-perserta/import" class="btn btn-success"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA BY EXCEL</a>
+              <br><br>
+
               <!-- Table with hoverable rows -->
               <table class="table table-hover">
 
@@ -27,19 +30,17 @@
                     <th scope="col">#</th>
                     <th scope="col">KODE MATAKULIAH</th></th>
                     <th scope="col">NAMA</th>
-                    <th scope="col">NIDN</th>
-                    <th scope="col">JUMLAH PERSERTA</th>
+                    <th scope="col">NIM</th>
                     <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach($dataPerserta as $Perserta)
+                    @foreach($dataPerserta as $perserta)
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
-                        <td>{{$perserta->kode_matkul}}</td>
-                        <td>{{$perserta->name}}</td>
-                        <td>{{$perserta->nidn}}</td>
-                        <td>{{$perserta->jumlahp}}</td>
+                        <td>{{$perserta->matakuliah->kd_matkul}}</td>
+                        <td>{{$perserta->user->name}}</td>
+                        <td>{{$perserta->user->username}}</td>
                         <td>
                             <a href="data-perserta/edit/{{$perserta->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
                             <a href="data-perserta/delete/{{$perserta->id}}"><i class="bi bi-eraser-fill"></i></a>

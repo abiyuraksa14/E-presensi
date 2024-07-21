@@ -16,14 +16,15 @@ class CreateJadwalsTable extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
             $table->string('hari');
+            $table->date('tanggal');
             $table->time('jam_mulai');
             $table->time('jam_akhir');
-            $table->unsignedBigInteger('id_matkul');
+            $table->string('id_matkul');
             $table->integer('tahun_akademik');
-            $table->integer('jumlah_peserta');
+            $table->integer('jumlah_peserta')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_matkul')->references('id')->on('matakuliahs')->onDelete('cascade');
+            $table->foreign('id_matkul')->references('kd_matkul')->on('matakuliahs')->onDelete('cascade');
         });
     }
 

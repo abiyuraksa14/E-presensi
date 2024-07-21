@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\JadwalController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\ScanController;
 use App\Http\Controllers\PersertaController;
+use App\Http\Controllers\PesertaController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +40,8 @@ Route::get('/', function(){
 
 
 Route::get('/data-mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::get('/data-mahasiswa/import', [MahasiswaController::class, 'by_excel'])->name('page.mahasiswa');
+Route::post('/data-mahasiswa/import-data', [MahasiswaController::class, 'import'])->name('import.mahasiswa');
 Route::get('/data-mahasiswa/create', [MahasiswaController::class, 'create']);
 Route::post('/data-mahasiswa/create', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
 Route::get('/data-mahasiswa/edit/{user}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
@@ -75,22 +79,21 @@ Route::get('/data-jadwal/edit/{user}', [JadwalController::class, 'edit'])->name(
 Route::post('/data-jadwal/update/{user}', [JadwalController::class, 'update'])->name('jadwal.update');
 Route::get('/data-jadwal/delete/{user}', [JadwalController::class, 'destroy'])->name('jadwal.delete');
 Route::get('/data-jadwal/qrcode/{id}', [JadwalController::class, 'generateQRCode'])->name('data-jadwal.qrcode');
+Route::get('/data-jadwal/show/{id}', [JadwalController::class, 'show'])->name('data-jadwal.show');
+
+Route::get('scan-qr-code/{id}', [AbsensiController::class, 'scanQRCode'])->name('peserta.scan-qr-code');
 
 
-
-Route::get('/data-scan', [ScanController::class, 'index'])->name('data-scan');
-
-// Rute untuk menampilkan halaman scan QR code
-Route::get('/scan_qr', [ScanController::class, 'scanQr']);
-
-// Rute untuk menghandle proses scan QR code
-Route::post('/scan-qr-process', [ScanController::class, 'processQr'])->name('scan.qr.process');
-
-Route::get('/data-perserta', [PersertaController::class, 'index'])->name('perserta.index');
+Route::get('/data-perserta', [PersertaController::class, 'index']);
+Route::get('/data-perserta/import', [PersertaController::class, 'by_excel'])->name('page.perserta');
+Route::post('/data-perserta/import-data', [PersertaController::class, 'import'])->name('import.perserta');
 Route::get('/data-perserta/create', [PersertaController::class, 'create']);
 Route::post('/data-perserta/create', [PersertaController::class, 'store'])->name('perserta.store');
 Route::get('/data-perserta/edit/{user}', [PersertaController::class, 'edit'])->name('perserta.edit');
 Route::post('/data-perserta/update/{user}', [PersertaController::class, 'update'])->name('perserta.update');
 Route::get('/data-perserta/delete/{user}', [PersertaController::class, 'destroy'])->name('perserta.delete');
+
+Route::get('/buka-kelas', [JadwalController::class, 'buka_kelas'])->name('jadwal.dosen');
+
 
 require __DIR__.'/auth.php';

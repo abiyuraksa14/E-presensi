@@ -15,10 +15,12 @@ class CreatePersertasTable extends Migration
     {
         Schema::create('persertas', function (Blueprint $table) {
             $table->id();
-            $table->string('kd_matkul');
-            $table->string('nama_mhs');
-            $table->string('nidn');
-            $table->string('jumlahp');
+            $table->string('id_matkul');
+            $table->string('id_mahasiswa');
+            $table->timestamps();
+
+            $table->foreign('id_matkul')->references('kd_matkul')->on('matakuliahs')->onDelete('cascade');
+            $table->foreign('id_mahasiswa')->references('username')->on('users')->onDelete('cascade');
         });
     }
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\MahasiswaImport;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MahasiswaController extends Controller
 {
@@ -12,6 +14,24 @@ class MahasiswaController extends Controller
     {
         $dataMhs = User::role('mahasiswa')->get();
         return view('dashboard.mahasiswa.index', compact('dataMhs'));
+    }
+
+    public function by_excel()
+    {
+        return view('dashboard.mahasiswa.create-excel');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        $file = $request->file('file');
+
+        Excel::import(new MahasiswaImport, $file);
+
+        return redirect('/data-mahasiswa')->with('success', 'Data mahasiswa berhasil diimport.');
     }
 
     public function create()

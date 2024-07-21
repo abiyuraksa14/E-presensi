@@ -47,7 +47,7 @@
                 <div class="col-sm-10">
                   <select name="nidn_id" id="nidn_id" class="form-control">
                     @foreach($dosen as $dsn)
-                        <option value="{{$dsn->id}}">{{$dsn->username}} - {{$dsn->name}}</option>
+                        <option value="{{$dsn->username}}">{{$dsn->username}} - {{$dsn->name}}</option>
                     @endforeach
                   </select>
                 </div>

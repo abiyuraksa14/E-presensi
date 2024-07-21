@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Matakuliah::class, 'nidn_id', 'id');
     }
+
+    public function peserta()
+    {
+        return $this->hasMany(Perserta::class, 'mahasiswa_id');
+    }
 }

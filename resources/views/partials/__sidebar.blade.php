@@ -14,22 +14,6 @@
                 class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li>
-                <a href="/data-mahasiswa">
-                    <i class="bi bi-circle"></i><span>Tabel Mahasiswa</span>
-                </a>
-            </li>
-            <li>
-                <a href="/data-dosen">
-                    <i class="bi bi-circle"></i><span>Tabel Dosen</span>
-                </a>
-            </li>
-            <li>
-                <a href="/data-admin">
-                    <i class="bi bi-circle"></i><span>Tabel Admin</span>
-                </a>
-            </li>
-            <li>
                 <a href="/data-matkul">
                     <i class="bi bi-circle"></i><span>Tabel Mata Kuliah</span>
                 </a>
@@ -51,6 +35,28 @@
             </li>
 
         </ul>
+        <a class="nav-link collapsed" data-bs-target="#componentss-nav" data-bs-toggle="collapse" href="#">
+            <i class="ri-file-user-line"></i><span>User Management</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="componentss-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li>
+                <a href="/data-mahasiswa">
+                    <i class="bi bi-circle"></i><span>Tabel Mahasiswa</span>
+                </a>
+            </li>
+            <li>
+                <a href="/data-dosen">
+                    <i class="bi bi-circle"></i><span>Tabel Dosen</span>
+                </a>
+            </li>
+            <li>
+                <a href="/data-admin">
+                    <i class="bi bi-circle"></i><span>Tabel Admin</span>
+                </a>
+            </li>
+
+        </ul>
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
             <i class="ri-fingerprint-fill"></i><span>Presensi</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -62,7 +68,7 @@
                 </a>
             </li>
             <li>
-                <a href="/data-jadwal">
+                <a href="/buka-kelas">
                     <i class="bi bi-circle"></i><span>Buka Kelas</span>
                 </a>
             </li>

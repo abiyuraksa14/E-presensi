@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PesertaImport;
+use App\Models\Matakuliah;
 use App\Models\Perserta;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PersertaController extends Controller
 {
@@ -14,31 +17,44 @@ class PersertaController extends Controller
         return view('dashboard.perserta.index', compact('dataPerserta'));
     }
 
+    public function by_excel()
+    {
+        return view('dashboard.perserta.create-excel');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        $file = $request->file('file');
+
+        Excel::import(new PesertaImport, $file);
+
+        return redirect('/data-perserta')->with('success', 'Data mahasiswa berhasil diimport.');
+    }
+
     public function create()
     {
-        $dosen = User::role('dosen')->get();
-        return view('dashboard.perserta.create',compact('dosen'));
+        $mahasiswa = User::role('mahasiswa')->get();
+        $matkul = Matakuliah::all();
+        return view('dashboard.perserta.create',compact('mahasiswa', 'matkul'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'kd_matkul' => 'required',
-            'nama_mhs' => 'required',
-            'nidn' => 'required',
-            'jumlahp' => 'required'
-
+            'id_matkul' => 'required',
+            'id_mahasiswa' => 'required'
         ]);
         Perserta::create([
-            'kd_matkul' => $request['kd_matkul'],
-            'nama_mhs' => $request['nama_mhs'],
-            'nidn' => $request['nidn'],
-            'jumlahp' => $request['jumlahp']
-
+            'id_matkul' => $request['id_matkul'],
+            'id_mahasiswa' => $request['id_mahasiswa']
         ]);
 
 
-        return redirect()->route('Perserta.index')
+        return redirect('/data-perserta')
             ->with('success', 'User "Perserta" created successfully.');
     }
 
@@ -58,8 +74,8 @@ class PersertaController extends Controller
         $user->update([
            'kd_matkul' => $request['kd_matkul'],
             'nama_mhs' => $request['nama_mhs'],
-            'nidn' => $request['nidn'],
-            'jumlahp' => $request['jumlahp']
+            'nim' => $request['nim']
+
         ]);
         return redirect()->route('Perserta.index')
             ->with('success', 'User updated successfully');

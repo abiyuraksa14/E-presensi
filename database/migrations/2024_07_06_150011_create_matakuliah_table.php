@@ -14,16 +14,16 @@ class CreateMatakuliahTable extends Migration
     public function up()
     {
         Schema::create('matakuliahs', function (Blueprint $table) {
-            $table->id();
             $table->string('kd_matkul')->unique();
+            $table->primary('kd_matkul');
             $table->string('nama_matkul');
             $table->integer('sks');
             $table->string('semester');
             $table->integer('durasi');
-            $table->unsignedBigInteger('nidn_id');
+            $table->string('nidn_id');
             $table->timestamps();
 
-            $table->foreign('nidn_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('nidn_id')->references('username')->on('users')->onDelete('cascade');
         });
     }
 

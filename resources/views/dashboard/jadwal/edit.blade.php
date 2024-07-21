@@ -19,6 +19,12 @@
                 </div>
               </div>
               <div class="mb-3 row">
+             <label for="inputText" class="col-sm-2 col-form-label">tanggal</label>
+             <div class="col-sm-10">
+               <input type="date" class="form-control" name="tanggal" value="{{$user->tanggal}}">
+             </div>
+           </div>
+              <div class="mb-3 row">
                 <label for="inputText" class="col-sm-2 col-form-label">jam mulai</label>
                 <div class="col-sm-10">
                   <input type="time" class="form-control" name="jam_mulai" value="{{$user->jam_mulai}}">

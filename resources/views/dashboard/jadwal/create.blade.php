@@ -18,6 +18,12 @@
                   <input type="text" class="form-control" name="hari">
                 </div>
               </div>
+              <div class="mb-3 row">
+                <label for="inputText" class="col-sm-2 col-form-label">tanggal</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="tanggal">
+                </div>
+              </div>
                 <div class="mb-3 row">
                     <label for="jam_mulai" class="col-sm-2 col-form-label">jam_mulai</label>
                     <div class="col-sm-10">
@@ -35,7 +41,7 @@
                 <div class="col-sm-10">
                   <select name="id_matkul" id="id_matkul" class="form-control">
                     @foreach($matkul as $mtk)
-                        <option value="{{$mtk->id}}">{{$mtk->kd_matkul}} - {{$mtk->nama_matkul}}</option>
+                        <option value="{{$mtk->kd_matkul}}">{{$mtk->kd_matkul}} - {{$mtk->nama_matkul}}</option>
                     @endforeach
                   </select>
                 </div>
