@@ -79,14 +79,14 @@
             <i class="bi bi-bar-chart"></i><span>Laporan Presensi</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-            @role(['mahasiswa','admin'])
+            @role(['mahasiswa'])
             <li>
                 <a href="/riwayat_presensi/mahasiswa">
                     <i class="bi bi-circle"></i><span>Riwayat Absensi Mahasiswa</span>
                 </a>
             </li>
             @endrole
-            @role(['dosen', 'admin'])
+            @role(['dosen'])
             <li>
                 <a href="/riwayat_presensi/mahasiswadsn">
                     <i class="bi bi-circle"></i><span>Riwayat Absensi Mahasiswa</span>
