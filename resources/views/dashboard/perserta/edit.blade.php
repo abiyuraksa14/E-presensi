@@ -29,11 +29,17 @@
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="nim" value="{{$user->id_mahasiswa}}">
                 </div>
-
+<br><br>
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-10">
+                    <a href="/data-perserta" class="btn btn-danger">kembali</a>
                 </div>
               </div>
 

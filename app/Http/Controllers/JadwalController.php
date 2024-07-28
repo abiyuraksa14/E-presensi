@@ -84,7 +84,7 @@ class JadwalController extends Controller
             ->with('success', 'Jadwal deleted successfully');
     }
 
-    public function generateQRCode($id)
+    public function generateQRCodeIn($id)
     {
         $jadwal = Jadwal::findOrFail($id);
 
@@ -94,7 +94,20 @@ class JadwalController extends Controller
         // Generate QR Code dengan link endpoint
         $qrcode = QrCode::size(200)->generate($url);
 
-        return view('dashboard.jadwal.qrcode', compact('qrcode'));
+        return view('dashboard.jadwal.qrcode', compact('qrcode', 'jadwal'));
+    }
+
+    public function generateQRCodeOut($id)
+    {
+        $jadwal = Jadwal::findOrFail($id);
+
+        // URL endpoint untuk scan QR Code
+        $url = URL::route('peserta.keluar.scan-qr-code', ['id' => $jadwal->id]);
+
+        // Generate QR Code dengan link endpoint
+        $qrcode = QrCode::size(200)->generate($url);
+
+        return view('dashboard.jadwal.qrcodeOut', compact('qrcode', 'jadwal'));
     }
 
     public function buka_kelas()

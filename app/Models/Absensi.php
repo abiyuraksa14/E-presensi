@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,16 +18,41 @@ class Absensi extends Model
 
     public function peserta()
     {
-        return $this->belongsTo(Perserta::class);
+        return $this->belongsTo(Perserta::class, 'id_peserta');
     }
 
     public function jadwal()
     {
-        return $this->belongsTo(Jadwal::class);
+        return $this->belongsTo(Jadwal::class, 'id_jadwal');
     }
 
     public function matakuliah()
     {
-        return $this->belongsTo(Matakuliah::class);
+        return $this->belongsTo(Matakuliah::class, 'id_matkul', 'kd_matkul');
+    }
+
+    public function getDurasiAttribute()
+    {
+        if ($this->waktu_absen_keluar) {
+            $masuk = Carbon::parse($this->waktu_absen_masuk);
+            $keluar = Carbon::parse($this->waktu_absen_keluar);
+            return $keluar->diffInMinutes($masuk);
+        } else {
+            return null;
+        }
+    }
+
+    public function getSelisihDurasiAttribute()
+    {
+        if ($this->durasi !== null && $this->matakuliah) {
+            $durasiMatakuliah = $this->matakuliah->durasi;
+            if ($this->durasi < $durasiMatakuliah) {
+                return 'Belum memenuhi waktu matakuliah';
+            } else {
+                return 'Sudah memenuhi';
+            }
+        } else {
+            return 'Belum absen keluar atau durasi mata kuliah tidak tersedia';
+        }
     }
 }

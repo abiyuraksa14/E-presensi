@@ -43,7 +43,7 @@
                   <button type="submit" class="btn btn-primary">SUBMIT</button>
                 </div>
               </div>
-
+              <a href="/data-admin" class="btn btn-danger">kembali</a>
             </form><!-- End General Form Elements -->
 
           </div>

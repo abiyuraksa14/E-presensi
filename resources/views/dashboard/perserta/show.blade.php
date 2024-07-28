@@ -19,7 +19,7 @@
               <h5 class="card-title">TABEL Perserta</h5>
              <br>
               <!-- Table with hoverable rows -->
-              <table class="table table-hover">
+              <table class="table table-hover" id="myTable">
 
                 <thead>
                   <tr>
@@ -27,6 +27,7 @@
                     <th scope="col">KODE MATAKULIAH</th></th>
                     <th scope="col">NAMA</th>
                     <th scope="col">NIM</th>
+                    <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -36,7 +37,6 @@
                         <td>{{$perserta->matakuliah->kd_matkul}}</td>
                         <td>{{$perserta->user->name}}</td>
                         <td>{{$perserta->user->username}}</td>
-                        <td>{{$perserta->jumlahp}}</td>
                         <td>
                             <a href="data-perserta/edit/{{$perserta->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
                             <a href="data-perserta/delete/{{$perserta->id}}"><i class="bi bi-eraser-fill"></i></a>

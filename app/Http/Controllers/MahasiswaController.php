@@ -16,6 +16,8 @@ class MahasiswaController extends Controller
         return view('dashboard.mahasiswa.index', compact('dataMhs'));
     }
 
+
+
     public function by_excel()
     {
         return view('dashboard.mahasiswa.create-excel');

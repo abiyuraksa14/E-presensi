@@ -17,6 +17,7 @@
                     <input type="file" class="form-control-file" id="file" name="file" accept=".xlsx, .xls">
                 </div><br>
                 <button type="submit" class="btn btn-primary">Import Data</button>
+                <a href="/data-perserta" class="btn btn-danger">kembali</a>
             </form>
 
           </div>

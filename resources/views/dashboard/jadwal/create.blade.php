@@ -21,7 +21,7 @@
               <div class="mb-3 row">
                 <label for="inputText" class="col-sm-2 col-form-label">tanggal</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="tanggal">
+                  <input type="date" class="form-control" name="tanggal">
                 </div>
               </div>
                 <div class="mb-3 row">
@@ -72,7 +72,7 @@
                 </div>
               </div>
 
-
+              <a href="/data-jadwal" class="btn btn-danger">kembali</a>
 
             </form><!-- End General Form Elements -->
 

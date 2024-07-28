@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicons -->
-    <link href="{{ asset('template/assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('template/assets/img/pei.png') }}" rel="icon">
     <link href="{{ asset('template/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -32,6 +32,18 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+<!-- Select2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -43,7 +55,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
+    <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: #c8e6c9">
         @include('partials.__navbar')
     </header><!-- End Header -->
 
@@ -53,7 +65,7 @@
     </aside><!-- End Sidebar-->
 
     <main id="main" class="main">
-    @yield('content')
+        @yield('content')
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -76,6 +88,54 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('template/assets/js/main.js') }}"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Pilih mata kuliah...",
+            allowClear: true
+        });
+
+        $('.select2-multiple').select2({
+            placeholder: "Pilih mahasiswa...",
+            allowClear: true,
+            tags: true
+        });
+    });
+</script>
+
+
+<script>
+    var lastResult, countResults = 0;
+
+    function onScanSuccess(decodedText, decodedResult) {
+        if (decodedText !== lastResult) {
+            ++countResults;
+            lastResult = decodedText;
+            // Log the result
+            console.log(`Scan result ${decodedText}`, decodedResult);
+
+            // Auto redirect to the scanned URL
+            window.location.href = decodedText;
+        }
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "qr-reader", { fps: 10, qrbox: 350 });
+    html5QrcodeScanner.render(onScanSuccess);
+</script>
+
 
 </body>
 

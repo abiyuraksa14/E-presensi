@@ -13,19 +13,21 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+<center>
     <section class="section">
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">QR Code Jadwal</h5>
+              <h5 class="card-title"> Hai,  {{Auth()->user()->name}} <br><br> Silahkan Scan Untuk Absen Masuk <br> Mata kuliah : {{$jadwal->matakuliah->nama_matkul}}  </h5>
               <div>{!! $qrcode !!}</div>
               <br>
-             <button> <a href="/data-jadwal">Kembali</a> </button>
 
             </div>
           </div>
         </div>
       </div>
     </section>
+</center>
+<a href="{{ URL::previous() }}" class="btn btn-primary">kembali</a>
+
 @endsection

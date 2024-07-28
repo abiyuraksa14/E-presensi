@@ -67,7 +67,7 @@
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </div>
-
+              <a href="/data-jadwal" class="btn btn-danger">kembali</a>
             </form><!-- End General Form Elements -->
 
           </div>

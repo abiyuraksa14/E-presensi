@@ -4,7 +4,7 @@
 
 
 <div class="pagetitle">
-    <h1>Dashboard{{Auth()->user()->role}}</h1>
+    <h1>Dashboard, Hai {{Auth()->user()->name}} wellcome</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -83,10 +83,10 @@
 
                 </div><!-- End Customers Card -->
                    <!-- Customers Card -->
-                   <div class="col-lg-6">
+                   <div class="col-lg-15">
                     <div class="card">
                       <div class="card-body">
-                        <h5 class="card-title">Bar CHart</h5>
+                        <h5 class="card-title">Grafik Kehadiran Mahasiswa</h5>
 
                         <!-- Bar Chart -->
                         <canvas id="barChart" style="max-height: 400px; display: block; box-sizing: border-box; height: 160px; width: 320px;" width="640" height="320"></canvas>

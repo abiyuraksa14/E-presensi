@@ -10,7 +10,7 @@
             <h5 class="card-title">TABEL MATA KULIAH</h5>
 
             <!-- General Form Elements -->
-            <form action="/data-matkul/update/{{$user->id}}" method="POST">
+            <form action="/data-matkul/update/{{$user->kd_matkul}}" method="POST">
                 @csrf
               <div class="mb-3 row">
                 <label for="inputText" class="col-sm-2 col-form-label">NAMA MATA KULIAH</label>
@@ -21,7 +21,7 @@
               <div class="mb-3 row">
                 <label for="inputText" class="col-sm-2 col-form-label">KODE MATA KULIAH</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="kd_matkul" value="{{$user->kd_matkul}}">
+                  <input type="text" readonly class="form-control" name="kd_matkul" value="{{$user->kd_matkul}}">
                 </div>
               </div>
               <div class="mb-3 row">

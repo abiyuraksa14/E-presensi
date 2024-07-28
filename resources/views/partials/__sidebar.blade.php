@@ -1,15 +1,16 @@
 
 <ul class="sidebar-nav" id="sidebar-nav">
 
-    <li class="nav-item">
-        <a class="nav-link " href="/home">
+    <li class="nav-item" >
+        <a class="nav-link" href="/home">
             <i class="bi bi-grid"></i>
             <span>Dashboard</span>
         </a>
     </li><!-- End Dashboard Nav -->
 
     <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        @role('admin')
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#" >
             <i class="ri-archive-line"></i><span>Data Master</span><i
                 class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -28,14 +29,8 @@
                     <i class="bi bi-circle"></i><span>Tabel Peserta</span>
                 </a>
             </li>
-            <li>
-                <a href="components-buttons.html">
-                    <i class="bi bi-circle"></i><span>Tabel Rincian Perserta</span>
-                </a>
-            </li>
-
         </ul>
-        <a class="nav-link collapsed" data-bs-target="#componentss-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#componentss-nav" data-bs-toggle="collapse" href="#" >
             <i class="ri-file-user-line"></i><span>User Management</span><i
                 class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -57,21 +52,26 @@
             </li>
 
         </ul>
+        @endrole
     <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" >
             <i class="ri-fingerprint-fill"></i><span>Presensi</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            @role('mahasiswa')
             <li>
-                <a href="/scan_qr">
+                <a href="/scan-qr-code">
                     <i class="bi bi-circle"></i><span>Scan Barcode</span>
                 </a>
             </li>
+            @endrole
+            @role('dosen')
             <li>
                 <a href="/buka-kelas">
                     <i class="bi bi-circle"></i><span>Buka Kelas</span>
                 </a>
             </li>
+            @endrole
         </ul>
     </li><!-- End Forms Nav -->
     <li class="nav-item">
@@ -80,14 +80,17 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-                <a href="charts-chartjs.html">
+                <a href="/riwayat_presensi">
                     <i class="bi bi-circle"></i><span>Riwayat Absensi Mahasiswa</span>
                 </a>
             </li>
+            @role(['dosen', 'admin'])
             <li>
-                <a href="charts-chartjs.html">
+                <a href="/riwayat_presensii">
                     <i class="bi bi-circle"></i><span>Riwayat Absensi Dosen</span>
                 </a>
             </li>
+            @endrole
         </ul>
+    </li>
 </ul>

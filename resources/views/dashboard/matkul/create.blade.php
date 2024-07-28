@@ -51,18 +51,18 @@
                     @endforeach
                   </select>
                 </div>
+
               </div>
-
-
               <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
                 </div>
               </div>
 
-            </form><!-- End General Form Elements -->
 
+            </form><!-- End General Form Elements -->
+            <a href="/data-matkul" class="btn btn-danger">kembali</a>
           </div>
         </div>
 

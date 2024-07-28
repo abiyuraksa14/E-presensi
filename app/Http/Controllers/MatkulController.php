@@ -49,25 +49,43 @@ class MatkulController extends Controller
         return view('users.show', compact('user'));
     }
 
-    public function edit(Matakuliah $user)
+    public function edit($user)
     {
         $dosen = User::role('dosen')->get();
+        $user = Matakuliah::where('kd_matkul', $user)->firstOrFail();
         return view('dashboard.matkul.edit', compact('user', 'dosen'));
     }
-    public function update(Request $request, Matakuliah $user)
-    {
 
-        $user->update([
-            'nama_matkul' => $request['nama_matkul'],
-            'kd_matkul' => $request['kd_matkul'],
-            'sks' => $request['sks'],
-            'semester' => $request['semester'],
-            'durasi' => $request['durasi'],
-            'nidn_id' => $request['nidn_id']
-        ]);
-        return redirect()->route('matkul.index')
-            ->with('success', 'User updated successfully');
-    }
+
+    public function update(Request $request, $kd_matkul)
+{
+    // Temukan Matakuliah berdasarkan kd_matkul
+    $matakuliah = Matakuliah::where('kd_matkul', $kd_matkul)->firstOrFail();
+
+    // Validasi input dari request
+    $request->validate([
+        'nama_matkul' => 'required|string|max:255',
+        'sks' => 'required|integer',
+        'semester' => 'required|string|max:255',
+        'durasi' => 'required|string|max:255',
+        'nidn_id' => 'required|string|max:255',
+    ]);
+
+    // Perbarui data Matakuliah
+    $matakuliah->update([
+        'nama_matkul' => $request->input('nama_matkul'),
+        'sks' => $request->input('sks'),
+        'semester' => $request->input('semester'),
+        'durasi' => $request->input('durasi'),
+        'nidn_id' => $request->input('nidn_id'),
+    ]);
+
+    // Redirect dengan pesan sukses
+    return redirect()->route('matkul.index')
+        ->with('success', 'Matakuliah updated successfully');
+}
+
+
     public function destroy(Matakuliah $user)
     {
         $user->delete();

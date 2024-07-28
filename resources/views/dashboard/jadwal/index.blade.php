@@ -20,17 +20,19 @@
               <a href="data-jadwal/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Tambah Jadwal</a>
                 <br><br>
               <!-- Table with hoverable rows -->
-              <table class="table table-hover">
+              <table class="table table-hover myTable" id="myTable">
                 <thead>
                   <tr>
                     <th scope="col">id jadwal</th>
                     <th scope="col">Hari</th>
-                    <th scope="col">Jam Mulai</th>
-                    <th scope="col">Jam Akhir</th>
-                    <th scope="col">Id Matkul</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Waktu Mulai</th>
+                    <th scope="col">waktu Akhir</th>
+                    <th scope="col">Id mata Kuliah</th>
                     <th scope="col">Tahun Akademik</th>
                     <th scope="col">Jumlah Peserta</th>
-                    <th scope="col">QR Code</th>
+                    <th scope="col" colspan="2">QR Code</th>
+                    <th scope="col">Action</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -39,23 +41,32 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $jadwal->hari }}</td>
+                        <td>{{ $jadwal->tanggal }}</td>
                         <td>{{ $jadwal->jam_mulai }}</td>
                         <td>{{ $jadwal->jam_akhir }}</td>
                         <td>{{ $jadwal->matakuliah->nama_matkul }}</td>
                         <td>{{ $jadwal->tahun_akademik }}</td>
                         <td>{{ $jadwal->jumlah_peserta }}</td>
                         <td>
-                            <a href="{{ route('data-jadwal.qrcode', $jadwal->id) }}">Generate QR</a>
+                            <a href="data-jadwal/qrcode/masuk/{{ $jadwal->id }}">Buka kelas</a>
+                        </td>
+                        <td>
+                            <a href="data-jadwal/qrcode/keluar/{{ $jadwal->id }}">Tutup kelas</a>
                         </td>
                         <td>
                             <a href="data-jadwal/edit/{{$jadwal->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
-                            <a href="data-jadwal/delete/{{$jadwal->id}}"><i class="bi bi-eraser-fill"></i></a>
+                            <a href="data-jadwal/delete/{{$jadwal->id}}"><i class="bi bi-eraser-fill"></i></a><br>
+
+                        </td>
+                        <td>
                             <a href="data-jadwal/show/{{$jadwal->id_matkul}}">Lihat Peserta</a>
                         </td>
+
                     </tr>
                     @endforeach
                 </tbody>
               </table>
+
               <!-- End Table with hoverable rows -->
 
             </div>

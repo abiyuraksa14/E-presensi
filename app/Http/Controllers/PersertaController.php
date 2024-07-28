@@ -46,17 +46,38 @@ class PersertaController extends Controller
     {
         $request->validate([
             'id_matkul' => 'required',
-            'id_mahasiswa' => 'required'
-        ]);
-        Perserta::create([
-            'id_matkul' => $request['id_matkul'],
-            'id_mahasiswa' => $request['id_mahasiswa']
+            'id_mahasiswa' => 'required|array|min:1'
         ]);
 
+        $idMatkul = $request->input('id_matkul');
+        $mahasiswaList = $request->input('id_mahasiswa');
+
+        $errors = [];
+
+        foreach ($mahasiswaList as $idMahasiswa) {
+            $exists = Perserta::where('id_matkul', $idMatkul)
+                              ->where('id_mahasiswa', $idMahasiswa)
+                              ->exists();
+
+            if ($exists) {
+                $errors[] = "Data untuk mahasiswa $idMahasiswa dan mata kuliah $idMatkul sudah ada.";
+            } else {
+                Perserta::create([
+                    'id_matkul' => $idMatkul,
+                    'id_mahasiswa' => $idMahasiswa
+                ]);
+            }
+        }
+
+        if (!empty($errors)) {
+            return redirect()->back()->withErrors($errors)->withInput();
+        }
 
         return redirect('/data-perserta')
-            ->with('success', 'User "Perserta" created successfully.');
+            ->with('success', 'Peserta created successfully.');
     }
+
+
 
     public function show(User $user)
     {

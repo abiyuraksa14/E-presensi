@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('template/assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('template/assets/img/pei.png')}}" rel="icon">
   <link href="{{asset('template/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -35,12 +36,27 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+    .bg-image {
+  background-image: url('{{asset('template/assets/img/trpl1.jpg')}}');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Atur tinggi sesuai kebutuhan */
+  content: '';
+
+
+}
+
+
+  </style>
+
 </head>
 
 <body>
 
-  <main>
-    <div class="container">
+    <main class="bg-image">
+        <div class="container">
 
       <section class="py-4 section register min-vh-100 d-flex flex-column align-items-center justify-content-center">
         <div class="container">
@@ -49,8 +65,8 @@
 
               <div class="py-4 d-flex justify-content-center">
                 <a href="index.html" class="w-auto logo d-flex align-items-center">
-                  <img src="{{asset('template/assets/img/logo.png')}}" alt="">
-                  <span class="d-none d-lg-block">E-Presensi</span>
+                  <img src="{{asset('template/assets/img/pei.png')}}" alt="">
+                  <span class="d-none d-lg-block" style="color:rgb(255, 255, 255)">E-Presensi</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -105,13 +121,13 @@
                 </div>
               </div>
 
-              <div class="credits">
+              {{-- <div class="credits" style="color: rgb(255, 255, 255)">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
                 Designed by <a href="https://bootstrapmade.com/">Rizky Abiyu Raksa</a>
-              </div>
+              </div> --}}
 
             </div>
           </div>

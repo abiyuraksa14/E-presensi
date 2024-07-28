@@ -20,7 +20,7 @@
               <a href="data-matkul/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
                 <br><br>
               <!-- Table with hoverable rows -->
-              <table class="table table-hover">
+              <table class="table table-hover" id="myTable">
                 <thead>
                   <tr>
                     <th scope="col">ID MATA KULIAH</th>
@@ -46,8 +46,8 @@
                         <td>{{$matkul->dosen->name}}</td>
                         <td>{{$matkul->dosen->username}}</td>
                         <td>
-                            <a href="data-matkul/edit/{{$matkul->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
-                            <a href="data-matkul/delete/{{$matkul->id}}"><i class="bi bi-eraser-fill"></i></a>
+                            <a href="data-matkul/edit/{{$matkul->kd_matkul}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
+                            <a href="data-matkul/delete/{{$matkul->kd_matkul}}"><i class="bi bi-eraser-fill"></i></a>
                         </td>
                     </tr>
                @endforeach
