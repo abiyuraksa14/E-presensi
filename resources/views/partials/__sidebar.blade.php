@@ -80,13 +80,13 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
-                <a href="/riwayat_presensi">
+                <a href="/riwayat_presensi/mahasiswa">
                     <i class="bi bi-circle"></i><span>Riwayat Absensi Mahasiswa</span>
                 </a>
             </li>
             @role(['dosen', 'admin'])
             <li>
-                <a href="/riwayat_presensii">
+                <a href="/riwayat_presensi/dosen">
                     <i class="bi bi-circle"></i><span>Riwayat Absensi Dosen</span>
                 </a>
             </li>

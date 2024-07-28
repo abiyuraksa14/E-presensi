@@ -111,5 +111,5 @@ Route::group(['middleware' => ['role:admin|dosen', 'auth']], function() {
 
 
 Route::get('/riwayat_presensi/mahasiswa', [RiwayatPresensiController::class, 'RiwayatMhs']);
-Route::get('/riwayat_presensii', [RiwayatPresensiController::class, 'Riwayatpree']);
+Route::get('/riwayat_presensi/dosen', [RiwayatPresensiController::class, 'RiwayatDsn']);
 require __DIR__.'/auth.php';

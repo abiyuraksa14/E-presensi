@@ -32,4 +32,11 @@
         <div id="qr-reader" style="width:50%;"></div></center>
     <div id="qr-reader-results"></div>
 
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/">Izin</a>
+            <a href="/">Sakit</a>
+        </div>
+    </div>
+
 @endsection

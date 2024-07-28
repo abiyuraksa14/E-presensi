@@ -159,7 +159,7 @@ class AbsensiController extends Controller
     }
 
     public function scanQRCodeOut(Request $request, $id)
-{
+    {
     // Validate request if necessary
     $request->validate([
         // Validation rules if needed
