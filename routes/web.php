@@ -32,7 +32,8 @@ Route::get('/dashboard', function () {
 Route::get('/home', function () {
     $user = Auth::user();
     $roles = $user->roles->pluck('name'); // Mengambil nama role
-    return view('home', compact('roles'));
+    $mhs = User::role('mahasiswa')->count();
+    return view('home', compact('roles', 'mhs'));
 })->middleware(['auth'])->name('home');
 
 Route::get('/', function(){
@@ -96,6 +97,7 @@ Route::group(['middleware' => ['role:admin', 'auth', 'role:mahasiswa']], functio
 });
 
 Route::get('/scan-qr-code', [AbsensiController::class, 'index'])->name('scan');
+Route::get('/scan/choose/{id}', [AbsensiController::class, 'index'])->name('scan.choose');
 Route::get('/scan/masuk/{id}', [AbsensiController::class, 'scanQRCodeIn'])->name('peserta.scan-qr-code');
 Route::get('/scan/keluar/{id}', [AbsensiController::class, 'scanQRCodeOut'])->name('peserta.keluar.scan-qr-code');
 Route::get('/scan-qr-codes', [AbsensiController::class, 'edit'])->name('scan.qr.process');
@@ -106,10 +108,13 @@ Route::group(['middleware' => ['role:admin|dosen', 'auth']], function() {
     Route::get('/data-jadwal/qrcode/keluar/{id}', [JadwalController::class, 'generateQRCodeOut'])->name('data-jadwal.qrcode');
 
     Route::get('/data-jadwal/show/{id}', [JadwalController::class, 'show'])->name('data-jadwal.show');
+    Route::get('/data-jadwal/status/{id}', [JadwalController::class, 'viewAttendance'])->name('data-jadwal.status');
+
     Route::get('/buka-kelas', [JadwalController::class, 'buka_kelas'])->name('jadwal.dosen');
 });
 
 
 Route::get('/riwayat_presensi/mahasiswa', [RiwayatPresensiController::class, 'RiwayatMhs']);
+Route::get('/riwayat_presensi/mahasiswadsn', [RiwayatPresensiController::class, 'RiwayatMhsMatkul']);
 Route::get('/riwayat_presensi/dosen', [RiwayatPresensiController::class, 'RiwayatDsn']);
 require __DIR__.'/auth.php';

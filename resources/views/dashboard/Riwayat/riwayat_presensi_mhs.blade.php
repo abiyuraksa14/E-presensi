@@ -43,7 +43,7 @@
                     @foreach($datas as $absensi)
                 <tr>
                     <td>{{ $absensi->id }}</td>
-                    <td>{{ $absensi->id_peserta }}</td>
+                    <td>{{ $absensi->user->name }}</td>
                     <td>{{ $absensi->id_jadwal }}</td>
                     <td>{{ $absensi->id_matkul }}</td>
                     <td>{{ $absensi->tanggal_absen }}</td>
@@ -52,7 +52,11 @@
                     <td>{{ $absensi->matakuliah->durasi }}</td>
                     <td>{{ $absensi->durasi }}</td>
                     <td>{{ $absensi->selisih_durasi }}</td>
-                    <td>{{ $absensi->keterangan }}</td>
+                    <td>@if ($absensi->keterangan)
+
+                            <span class="btn btn-success">{{ $absensi->keterangan }}</span>
+
+                        @endif</td>
                 </tr>
             @endforeach
                 </tbody>

@@ -177,4 +177,20 @@ class JadwalController extends Controller
 
         return view('dashboard.jadwal.index', compact('datajadwal'));
     }
+
+    public function viewAttendance($jadwalId)
+    {
+        $jadwal = Jadwal::findOrFail($jadwalId);
+        $matakuliah = $jadwal->matakuliah;
+
+        // Ambil daftar peserta yang terdaftar di matakuliah ini
+        $peserta = Perserta::where('id_matkul', $matakuliah->id)->get();
+
+        // Ambil absensi untuk jadwal ini
+        $absensi = Absensi::where('id_jadwal', $jadwalId)
+            ->whereDate('tanggal_absen', Carbon::today())
+            ->get();
+
+        return view('dashboard.jadwal.view-attendance', compact('jadwal', 'peserta', 'absensi'));
+    }
 }

@@ -129,8 +129,8 @@ class AbsensiController extends Controller
 
         // Check if the user is registered as a participant (Peserta) in the associated Matakuliah
         $isParticipant = Perserta::where('id_mahasiswa', $user->username)
-                                 ->where('id_matkul', $jadwal->id_matkul)
-                                 ->exists();
+            ->where('id_matkul', $jadwal->id_matkul)
+            ->exists();
 
         if (!$isParticipant) {
             return redirect()->back()->with('error', 'Anda belum terdaftar sebagai peserta pada matakuliah ini.');
@@ -138,9 +138,9 @@ class AbsensiController extends Controller
 
         // Example: check if the student already did the absensi for this jadwal today
         $existingAbsensi = Absensi::where('id_jadwal', $id)
-                                  ->where('id_peserta', $user->id) // Filter by authenticated user
-                                  ->whereDate('tanggal_absen', Carbon::today())
-                                  ->exists();
+            ->where('id_peserta', $user->id) // Filter by authenticated user
+            ->whereDate('tanggal_absen', Carbon::today())
+            ->exists();
 
         if ($existingAbsensi) {
             return redirect()->back()->with('error', 'Anda sudah melakukan absensi untuk jadwal ini hari ini.');
@@ -153,6 +153,7 @@ class AbsensiController extends Controller
         $absensi->id_matkul = $jadwal->matakuliah->kd_matkul;
         $absensi->tanggal_absen = Carbon::now()->toDateString();
         $absensi->waktu_absen_masuk = Carbon::now(); // You can adjust this as needed
+        $absensi->keterangan = 'Hadir';
         $absensi->save();
 
         return redirect()->back()->with('success', 'Absensi Masuk berhasil.');
@@ -160,59 +161,55 @@ class AbsensiController extends Controller
 
     public function scanQRCodeOut(Request $request, $id)
     {
-    // Validate request if necessary
-    $request->validate([
-        // Validation rules if needed
-    ]);
+        // Validate request if necessary
+        $request->validate([
+            // Validation rules if needed
+        ]);
 
-    // Ensure the authenticated user is a valid participant in the Matakuliah associated with the Jadwal
-    $user = auth()->user();
-    $jadwal = Jadwal::findOrFail($id);
+        // Ensure the authenticated user is a valid participant in the Matakuliah associated with the Jadwal
+        $user = auth()->user();
+        $jadwal = Jadwal::findOrFail($id);
 
-    // Check if the user is registered as a participant (Peserta) in the associated Matakuliah
-    $isParticipant = Perserta::where('id_mahasiswa', $user->username)
-                             ->where('id_matkul', $jadwal->id_matkul)
-                             ->exists();
+        // Check if the user is registered as a participant (Peserta) in the associated Matakuliah
+        $isParticipant = Perserta::where('id_mahasiswa', $user->username)
+            ->where('id_matkul', $jadwal->id_matkul)
+            ->exists();
 
-    if (!$isParticipant) {
-        return redirect()->back()->with('error', 'Anda belum terdaftar sebagai peserta pada matakuliah ini.');
+        if (!$isParticipant) {
+            return redirect()->back()->with('error', 'Anda belum terdaftar sebagai peserta pada matakuliah ini.');
+        }
+
+        // Check if the student has done the absensi in (waktu_absen_masuk) for this jadwal today
+        $existingAbsensi = Absensi::where('id_jadwal', $id)
+            ->where('id_peserta', $user->id) // Filter by authenticated user
+            ->whereDate('tanggal_absen', Carbon::today())
+            ->whereNotNull('waktu_absen_masuk')
+            ->exists();
+
+        if (!$existingAbsensi) {
+            return redirect()->back()->with('error', 'Anda belum melakukan absensi masuk untuk jadwal ini hari ini.');
+        }
+
+        // Check if the student already did the absensi out (waktu_absen_keluar) for this jadwal today
+        $existingAbsensiOut = Absensi::where('id_jadwal', $id)
+            ->where('id_peserta', $user->id) // Filter by authenticated user
+            ->whereDate('tanggal_absen', Carbon::today())
+            ->whereNotNull('waktu_absen_keluar')
+            ->exists();
+
+        if ($existingAbsensiOut) {
+            return redirect()->back()->with('error', 'Anda sudah melakukan absensi keluar untuk jadwal ini hari ini.');
+        }
+
+        // Update existing Absensi record with waktu_absen_keluar
+        $absensi = Absensi::where('id_jadwal', $id)
+            ->where('id_peserta', $user->id)
+            ->whereDate('tanggal_absen', Carbon::today())
+            ->firstOrFail();
+
+        $absensi->waktu_absen_keluar = Carbon::now(); // You can adjust this as needed
+        $absensi->save();
+
+        return redirect()->back()->with('success', 'Absensi Keluar ' . $jadwal->matakuliah->kd_matkul . ' berhasil.');
     }
-
-    // Check if the student has done the absensi in (waktu_absen_masuk) for this jadwal today
-    $existingAbsensi = Absensi::where('id_jadwal', $id)
-                              ->where('id_peserta', $user->id) // Filter by authenticated user
-                              ->whereDate('tanggal_absen', Carbon::today())
-                              ->whereNotNull('waktu_absen_masuk')
-                              ->exists();
-
-    if (!$existingAbsensi) {
-        return redirect()->back()->with('error', 'Anda belum melakukan absensi masuk untuk jadwal ini hari ini.');
-    }
-
-    // Check if the student already did the absensi out (waktu_absen_keluar) for this jadwal today
-    $existingAbsensiOut = Absensi::where('id_jadwal', $id)
-                                 ->where('id_peserta', $user->id) // Filter by authenticated user
-                                 ->whereDate('tanggal_absen', Carbon::today())
-                                 ->whereNotNull('waktu_absen_keluar')
-                                 ->exists();
-
-    if ($existingAbsensiOut) {
-        return redirect()->back()->with('error', 'Anda sudah melakukan absensi keluar untuk jadwal ini hari ini.');
-    }
-
-    // Update existing Absensi record with waktu_absen_keluar
-    $absensi = Absensi::where('id_jadwal', $id)
-                      ->where('id_peserta', $user->id)
-                      ->whereDate('tanggal_absen', Carbon::today())
-                      ->firstOrFail();
-
-    $absensi->waktu_absen_keluar = Carbon::now(); // You can adjust this as needed
-    $absensi->save();
-
-    return redirect()->back()->with('success', 'Absensi Keluar ' . $jadwal->matakuliah->kd_matkul. ' berhasil.');
-}
-
-
-
-
 }

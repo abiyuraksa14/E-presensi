@@ -1,8 +1,11 @@
+@php
+    use Carbon\Carbon;
+@endphp
 @extends('layouts.layout_admin')
 
 @section('content')
     <div class="pagetitle">
-      <h1>TABEL Riwayat Presensi dosen</h1>
+      <h1>TABEL Riwayat Presensi</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -23,33 +26,33 @@
 
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">id presensi</th>
-                    <th scope="col">waktu presensi</th>
-                    <th scope="col">keterangan matkul</th>
-                    <th scope="col">nidn dosen</th>
-                    <th scope="col">jumlah aktual mahasiswa</th>
-                    <th scope="col">id jadwal</th>
-                    <th scope="col">kd matkul</th>
-                    <th scope="col">tanggal</th>
-                    <th scope="col">mulai kelas</th>
-                    <th scope="col">tutup kelas</th>
-                    <th scope="col">durasi</th>
+                    <th>#</th>
+                    <th>Nama Dosen</th>
+                    <th>ID Jadwal</th>
+                    <th>ID Matakuliah</th>
+                    <th>Tanggal Absen</th>
+                    <th>Waktu Buka Kelas</th>
+                    <th>Waktu Tutup Kelas</th>
+                    <th>Durasi Matakuliah</th>
+                    <th>Durasi Actual</th>
+                    <th>Keterangan</th>
                   </tr>
                 </thead>
-                <!-- {{-- <tbody>
-                    @foreach($dataPerserta as $perserta)
-                    <tr>
-                        <th scope="row">{{$loop->iteration}}</th>
-                        <td>{{$perserta->matakuliah->kd_matkul}}</td>
-                        <td>{{$perserta->user->name}}</td>
-                        <td>{{$perserta->user->username}}</td>
-                        <td>
-                            <a href="data-perserta/edit/{{$perserta->id}}"><i class="bi bi-pencil-square"></i></a> &nbsp;
-                            <a href="data-perserta/delete/{{$perserta->id}}"><i class="bi bi-eraser-fill"></i></a>
-                        </td>
-                    </tr>
-               @endforeach --}} -->
+                <tbody>
+                    @foreach($datas as $absensi)
+                <tr>
+                    <td>{{ $absensi->id }}</td>
+                    <td>{{ $absensi->dosen->name }}</td>
+                    <td>{{ $absensi->id_jadwal }}</td>
+                    <td>{{ $absensi->id_matakuliah }}</td>
+                    <td>{{ $absensi->tanggal_absen }}</td>
+                    <td>{{Carbon::parse($absensi->waktu_absen_masuk)->format('H:i')}}</td>
+                    <td>{{Carbon::parse($absensi->waktu_absen_keluar)->format('H:i')}}</td>
+                    <td>{{ $absensi->matakuliah->durasi }}</td>
+                    <td>{{ $absensi->durasi }}</td>
+                    <td>{{ $absensi->selisih_durasi }}</td>
+                </tr>
+            @endforeach
                 </tbody>
               </table>
               <!-- End Table with hoverable rows -->

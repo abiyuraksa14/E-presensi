@@ -21,6 +21,11 @@ class Absensi extends Model
         return $this->belongsTo(Perserta::class, 'id_peserta');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_peserta');
+    }
+
     public function jadwal()
     {
         return $this->belongsTo(Jadwal::class, 'id_jadwal');
