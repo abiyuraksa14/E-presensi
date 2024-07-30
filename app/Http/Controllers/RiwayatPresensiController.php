@@ -48,4 +48,18 @@ class RiwayatPresensiController extends Controller
         $datas = DosenAbsensi::all()->where('id_dosen', Auth::user()->id);
         return view('dashboard.Riwayat.riwayat_presensi_dsn', compact('datas'));
     }
+
+    public function RiwayatMhsAll()
+    {
+        // Logika untuk menangani riwayat presensi
+        $datas = Absensi::all();
+        return view('dashboard.Riwayat.riwayat_presensi_mhs', compact('datas'));
+    }
+    public function RiwayatDsnAll()
+    {
+        // Logika untuk menangani riwayat presensi
+        $datas = DosenAbsensi::all();
+        return view('dashboard.Riwayat.riwayat_presensi_dsn', compact('datas'));
+    }
+
 }

@@ -33,7 +33,8 @@ Route::get('/home', function () {
     $user = Auth::user();
     $roles = $user->roles->pluck('name'); // Mengambil nama role
     $mhs = User::role('mahasiswa')->count();
-    return view('home', compact('roles', 'mhs'));
+    $dsn = User::role('dosen')->count();
+    return view('home', compact('roles', 'mhs','dsn'));
 })->middleware(['auth'])->name('home');
 
 Route::get('/', function(){
@@ -117,5 +118,7 @@ Route::group(['middleware' => ['role:admin|dosen', 'auth']], function() {
 Route::get('/riwayat_presensi/mahasiswa', [RiwayatPresensiController::class, 'RiwayatMhs']);
 Route::get('/riwayat_presensi/mahasiswadsn', [RiwayatPresensiController::class, 'RiwayatMhsMatkul']);
 Route::get('/riwayat_presensi/dosen', [RiwayatPresensiController::class, 'RiwayatDsn']);
+Route::get('/riwayat_presensi/dosen/all', [RiwayatPresensiController::class, 'RiwayatDsnAll']);
+Route::get('/riwayat_presensi/mahasiswa/all', [RiwayatPresensiController::class, 'RiwayatMhsAll']);
 Route::get('/api/attendance', [AbsensiController::class, 'getAttendanceData']);
 require __DIR__.'/auth.php';

@@ -98,6 +98,18 @@
                 </a>
             </li>
             @endrole
+            @role(['kaprodi'])
+            <li>
+                <a href="/riwayat_presensi/mahasiswa/all">
+                    <i class="bi bi-circle"></i><span>Riwayat Presensi Mahasiswa all</span>
+                </a>
+            </li>
+            <li>
+                <a href="/riwayat_presensi/dosen/all">
+                    <i class="bi bi-circle"></i><span>Riwayat Presensi Dosen all</span>
+                </a>
+            </li>
+            @endrole
         </ul>
     </li>
 </ul>

@@ -21,7 +21,7 @@
             <div class="row">
 
                 <!-- Sales Card -->
-                <div class="col-xxl-4 col-md-6">
+                <div class="col-xxl-6 col-md-6">
                     <div class="card info-card sales-card">
                         <div class="card-body">
                             <h5 class="card-title">mahasiswa</h5>
@@ -42,17 +42,17 @@
                 </div><!-- End Sales Card -->
 
                 <!-- Revenue Card -->
-                <div class="col-xxl-4 col-md-6">
+                <div class="col-xxl-6 col-md-6">
                     <div class="card info-card revenue-card">
                         <div class="card-body">
-                            <h5 class="card-title"> Dosen </h5>
+                            <h5 class="card-title">Dosen </h5>
                             <div class="d-flex align-items-center">
                                 <div
                                     class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="ps-3">
-                                     {{-- <h6>{{$dsn}}</h6> --}}
+                                     <h6>{{$dsn}}</h6>
                                     <p>Jumlah Dosen</p>
                                 </div>
                             </div>
@@ -61,33 +61,12 @@
                     </div>
                 </div><!-- End Revenue Card -->
 
-                <!-- Customers Card -->
-                <div class="col-xxl-4 col-md 6">
-                    <div class="card info-card customers-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Cuti</h5>
-
-                            <div class="d-flex align-items-center">
-                                <div
-                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6>1244</h6>
-                                    <p>Jumlah Mahasiswa</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div><!-- End Customers Card -->
               <!-- Customers Card -->
-<div class="col-lg-15">
+{{-- <div class="col-lg-15">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Grafik Kehadiran Mahasiswa</h5>
-        <canvas id="barChart"></canvas>
+        <canvas id="barChart"></canvas> --}}
 
 
 

@@ -36,7 +36,7 @@ class Absensi extends Model
         return $this->belongsTo(Matakuliah::class, 'id_matkul', 'kd_matkul');
     }
 
-    public function getDurasiAttribute()
+    public function getDurasiAttribute() //actual
     {
         if ($this->waktu_absen_keluar) {
             $masuk = Carbon::parse($this->waktu_absen_masuk);
@@ -47,7 +47,7 @@ class Absensi extends Model
         }
     }
 
-    public function getSelisihDurasiAttribute()
+    public function getSelisihDurasiAttribute() //status memenuhi syarat
     {
         if ($this->durasi !== null && $this->matakuliah) {
             $durasiMatakuliah = $this->matakuliah->durasi;
