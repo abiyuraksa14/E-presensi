@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>TABEL Riwayat Presensi</h1>
+      <h1>Riwayat Presensi</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -19,7 +19,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">TABEL Riwayat dosen</h5>
+              <h5 class="card-title">Riwayat Presensi Dosen</h5>
 
               <!-- Table with hoverable rows -->
               <table class="table table-hover" id="myTable">

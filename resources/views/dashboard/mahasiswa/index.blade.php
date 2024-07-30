@@ -16,7 +16,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">TABEL MAHASISWA</h5>
+              <h5 class="card-title">DATA MAHASISWA</h5>
               <a href="data-mahasiswa/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
                 &nbsp; &nbsp;
                 <a href="/data-mahasiswa/import" class="btn btn-success"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA BY EXCEL</a>

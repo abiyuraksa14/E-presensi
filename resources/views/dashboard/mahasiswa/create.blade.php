@@ -7,7 +7,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Tabel Mahasiswa</h5>
+            <h5 class="card-title">Data Mahasiswa</h5>
 
             <!-- General Form Elements -->
             <form action="{{ route('mahasiswa.store') }}" method="POST">
@@ -40,10 +40,11 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">SUBMIT</button>
+                  <button type="submit" class="btn btn-success">SUBMIT</button>
+                  <a href="/data-mahasiswa" class="btn btn-danger">kembali</a>
                 </div>
               </div>
-              <a href="/data-mahasiswa" class="btn btn-danger">kembali</a>
+
             </form><!-- End General Form Elements -->
 
           </div>

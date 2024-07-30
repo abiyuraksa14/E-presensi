@@ -117,4 +117,5 @@ Route::group(['middleware' => ['role:admin|dosen', 'auth']], function() {
 Route::get('/riwayat_presensi/mahasiswa', [RiwayatPresensiController::class, 'RiwayatMhs']);
 Route::get('/riwayat_presensi/mahasiswadsn', [RiwayatPresensiController::class, 'RiwayatMhsMatkul']);
 Route::get('/riwayat_presensi/dosen', [RiwayatPresensiController::class, 'RiwayatDsn']);
+Route::get('/api/attendance', [AbsensiController::class, 'getAttendanceData']);
 require __DIR__.'/auth.php';

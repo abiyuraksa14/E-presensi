@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>TABEL MATAKULIAH</h1>
+      <h1>TABEL MATA KULIAH</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tabel</li>
+          <li class="breadcrumb-item">Data</li>
           <li class="breadcrumb-item active">Matakuliah</li>
         </ol>
       </nav>
@@ -16,7 +16,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">TABEL MATA KULIAH</h5>
+              <h5 class="card-title">DATA MATA KULIAH</h5>
               <a href="data-matkul/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
                 <br><br>
               <!-- Table with hoverable rows -->

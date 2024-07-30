@@ -16,7 +16,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">TABEL DOSEN</h5>
+              <h5 class="card-title">DATA DOSEN</h5>
               <a href="data-dosen/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> TAMBAH DATA</a>
               <br><br>
 

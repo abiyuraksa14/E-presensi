@@ -40,10 +40,11 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                  <a href="/data-mahasiswa" class="btn btn-danger">kembali</a>
                 </div>
               </div>
-              <a href="/data-mahasiswa" class="btn btn-danger">kembali</a>
+
             </form><!-- End General Form Elements -->
 
           </div>

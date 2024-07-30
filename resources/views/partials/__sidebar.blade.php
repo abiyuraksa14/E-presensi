@@ -82,19 +82,19 @@
             @role(['mahasiswa'])
             <li>
                 <a href="/riwayat_presensi/mahasiswa">
-                    <i class="bi bi-circle"></i><span>Riwayat Absensi Mahasiswa</span>
+                    <i class="bi bi-circle"></i><span>Riwayat Presensi Mahasiswa</span>
                 </a>
             </li>
             @endrole
             @role(['dosen'])
             <li>
                 <a href="/riwayat_presensi/mahasiswadsn">
-                    <i class="bi bi-circle"></i><span>Riwayat Absensi Mahasiswa</span>
+                    <i class="bi bi-circle"></i><span>Riwayat Presensi Mahasiswa</span>
                 </a>
             </li>
             <li>
                 <a href="/riwayat_presensi/dosen">
-                    <i class="bi bi-circle"></i><span>Riwayat Absensi Dosen</span>
+                    <i class="bi bi-circle"></i><span>Riwayat Presensi Dosen</span>
                 </a>
             </li>
             @endrole

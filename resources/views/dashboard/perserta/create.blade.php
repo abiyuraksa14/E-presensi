@@ -7,7 +7,7 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Tabel peserta</h5>
+            <h5 class="card-title">TABEL PESERTA</h5>
 
             @if ($errors->any())
         <div class="alert alert-danger">
@@ -33,7 +33,7 @@
                   </div>
               </div>
               <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-2 col-form-label">NIM</label>
+                <label for="inputEmail" class="col-sm-2 col-form-label">MASUKAN MAHASISWA</label>
                 <div class="col-sm-10">
                     <select name="id_mahasiswa[]" class="form-control select2-button" id="select-state" multiple="multiple">
                       @foreach($mahasiswa as $mhs)
@@ -45,7 +45,7 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">SUBMIT</button>
+                  <button type="submit" class="btn btn-success">SUBMIT</button>
                   <a href="/data-perserta" class="btn btn-danger">CANCEL</a>
                 </div>
               </div>

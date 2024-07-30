@@ -57,12 +57,12 @@
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
                   <button type="submit" class="btn btn-success">Submit</button>
+                  <a href="/data-matkul" class="btn btn-danger">kembali</a>
                 </div>
               </div>
 
 
             </form><!-- End General Form Elements -->
-            <a href="/data-matkul" class="btn btn-danger">kembali</a>
           </div>
         </div>
 

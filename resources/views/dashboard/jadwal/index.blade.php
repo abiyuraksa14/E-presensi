@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>Tabel jadwal</h1>
+      <h1>TABEL JADWAL MATA KULIAH</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Jadwal</li>
+          <li class="breadcrumb-item">TABEL </li>
+          <li class="breadcrumb-item active">JADWAL</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -16,7 +16,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Table Jadwal</h5>
+              <h5 class="card-title">DATA JADWAL</h5>
               <a href="data-jadwal/create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Tambah Jadwal</a>
                 <br><br>
                 @if(session('success'))

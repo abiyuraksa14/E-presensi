@@ -7,6 +7,7 @@ use App\Models\Jadwal;
 use App\Models\Perserta;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AbsensiController extends Controller
 {
@@ -212,4 +213,5 @@ class AbsensiController extends Controller
 
         return redirect()->back()->with('success', 'Absensi Keluar ' . $jadwal->matakuliah->kd_matkul . ' berhasil.');
     }
+
 }

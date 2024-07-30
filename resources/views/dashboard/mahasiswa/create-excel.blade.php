@@ -16,8 +16,8 @@
                     <label for="file">File Excel</label><br>
                     <input type="file" class="form-control-file" id="file" name="file" accept=".xlsx, .xls">
                 </div><br>
-                <button type="submit" class="btn btn-primary">Import Data</button>
-                <a href="/data-mahasiswa" class="btn btn-danger">kembali</a>
+                <button type="submit" class="btn btn-success">Import Data</button>
+                <a href="/data-mahasiswa" class="btn btn-danger">Cancel</a>
             </form>
 
           </div>

@@ -5,12 +5,12 @@
 
 @section('content')
     <div class="pagetitle">
-      <h1>TABEL Riwayat Presensi</h1>
+      <h1>Riwayat Presensi</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Riwayat dosen</li>
+          <li class="breadcrumb-item active">Riwayat Presensi</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -19,7 +19,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">TABEL Riwayat dosen</h5>
+              <h5 class="card-title">Riwayat Presensi Mahasiswa</h5>
 
               <!-- Table with hoverable rows -->
               <table class="table table-hover" id="myTable">
