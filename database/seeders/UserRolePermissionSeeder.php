@@ -44,13 +44,13 @@ class UserRolePermissionSeeder extends Seeder
         ]);
         $mahasiswa->assignRole($mahasiswaRole);
 
-        // $mahasiswa1 = User::create([
-        //     'name' => 'Chandra Ardiansyah',
-        //     'email' => 'chandra@pei.com',
-        //     'username' => '202004001',
-        //     'password' => bcrypt('password'),
-        // ]);
-        //  $mahasiswa1->assignRole($mahasiswaRole);
+        $mahasiswa1 = User::create([
+            'name' => 'Chandra Ardiansyah',
+            'email' => 'chandra@pei.com',
+            'username' => '202004001',
+            'password' => bcrypt('password'),
+        ]);
+         $mahasiswa1->assignRole($mahasiswaRole);
 
         $dosen = User::create([
             'name' => 'Ricak Agus Setiawan',

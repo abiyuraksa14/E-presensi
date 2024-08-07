@@ -11,7 +11,7 @@
     <li class="nav-item">
         @role('admin')
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#" >
-            <i class="ri-archive-line"></i><span>Data Master</span><i
+            <i class="ri-database-line"></i><span>Data Master</span><i
                 class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -31,7 +31,7 @@
             </li>
         </ul>
         <a class="nav-link collapsed" data-bs-target="#componentss-nav" data-bs-toggle="collapse" href="#" >
-            <i class="ri-file-user-line"></i><span>User Management</span><i
+            <i class="bi bi-person"></i><span>User Management</span><i
                 class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="componentss-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -53,10 +53,12 @@
 
         </ul>
         @endrole
+        @role(['mahasiswa','dosen'])
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" >
-            <i class="ri-fingerprint-fill"></i><span>Presensi</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-qr-code"></i><span>Presensi</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        @endrole
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             @role('mahasiswa')
             <li>
@@ -73,11 +75,13 @@
             </li>
             @endrole
         </ul>
+        @role(['mahasiswa','dosen','kaprodi'])
     </li><!-- End Forms Nav -->
     <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-bar-chart"></i><span>Laporan Presensi</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-file-earmark-text"></i><span>Laporan Presensi</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        @endrole
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             @role(['mahasiswa'])
             <li>

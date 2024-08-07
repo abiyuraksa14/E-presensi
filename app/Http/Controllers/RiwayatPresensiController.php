@@ -62,4 +62,25 @@ class RiwayatPresensiController extends Controller
         return view('dashboard.Riwayat.riwayat_presensi_dsn', compact('datas'));
     }
 
+    public function Riwayatfill()
+    {
+        {
+            $datas = Absensi::with('user', 'matakuliah');
+
+            if ($datas->has('name') && $datas->name != '') {
+                $datas->whereHas('user', function($q) use ($datas) {
+                    $q->where('name', 'like', '%' . $datas->name . '%');
+                });
+            }
+
+            if ($datas->has('id_matkul') && $datas->id_matkul != '') {
+                $datas->where('id_matkul', $datas->id_matkul);
+            }
+
+            $datas = $datas->get();
+
+            return view('dashboard.Riwayat.riwayat_presensi_mhs', compact('datas'));
+        }
+    }
+
 }

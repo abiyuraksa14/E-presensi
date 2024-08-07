@@ -147,7 +147,7 @@ class AbsensiController extends Controller
             return redirect()->back()->with('error', 'Anda sudah melakukan absensi untuk jadwal ini hari ini.');
         }
 
-        // Create new Absensi record
+        // Create new Absensi record //keterangan hadir di view
         $absensi = new Absensi();
         $absensi->id_peserta = $user->id; // Use the authenticated user's ID as the Peserta ID
         $absensi->id_jadwal = $id;

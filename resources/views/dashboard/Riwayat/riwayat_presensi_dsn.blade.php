@@ -48,8 +48,8 @@
                     <td>{{ $absensi->tanggal_absen }}</td>
                     <td>{{Carbon::parse($absensi->waktu_absen_masuk)->format('H:i')}}</td>
                     <td>{{Carbon::parse($absensi->waktu_absen_keluar)->format('H:i')}}</td>
-                    <td>{{ $absensi->matakuliah->durasi }}</td>
-                    <td>{{ $absensi->durasi }}</td>
+                    <td>{{ $absensi->matakuliah->durasi }} menit</td>
+                    <td>{{ $absensi->durasi }} menit</td>
                     <td>{{ $absensi->selisih_durasi }}</td>
                 </tr>
             @endforeach

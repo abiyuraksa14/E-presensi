@@ -33,7 +33,7 @@
       <div class="row">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title"> Hai,  {{Auth()->user()->name}} <br><br> Silahkan Scan Untuk Absen Masuk <br> Mata kuliah : {{$jadwal->matakuliah->nama_matkul}}  </h5>
+              <h5 class="card-title"> Silahkan Scan Untuk Absen Masuk <br> Mata kuliah : {{$jadwal->matakuliah->nama_matkul}}  </h5>
               <div>{!! $qrcode !!}</div>
               <br>
 

@@ -55,7 +55,7 @@ class MahasiswaController extends Controller
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
         ]);
-        $mahasiswa->assignRole('mahasiswa');
+        $mahasiswa->assignRole('mahasiswa'); //role mhs
 
         return redirect()->route('mahasiswa.index')
             ->with('success', 'User "Mahasiswa" created successfully.');

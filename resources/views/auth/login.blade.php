@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,33 +29,79 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('template/assets/css/style.css')}}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: NiceAdmin - v2.4.1
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
   <style>
-    .bg-image {
-  background-image: url('{{asset('template/assets/img/trpl1.jpg')}}');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; /* Atur tinggi sesuai kebutuhan */
-  content: '';
-
-
-}
-
-
+    .bg-carousel {
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .bg-carousel .carousel-inner {
+      height: 100%;
+    }
+    .bg-carousel .carousel-item {
+      height: 100%;
+    }
+    .bg-carousel .carousel-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+    .login-container {
+      z-index: 1;
+      position: relative;
+    }
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .form-check-label {
+      cursor: pointer;
+    }
+    .input-group-text {
+      background-color: #007bff;
+      color: white;
+    }
   </style>
 
 </head>
 
 <body>
 
-    <main class="bg-image">
-        <div class="container">
+  <div id="bg-carousel" class="carousel slide bg-carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{asset('template/assets/img/trpl1.jpg')}}" class="d-block w-100" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <img src="{{asset('template/assets/img/trpl2.jpg')}}" class="d-block w-100" alt="Slide 2">
+      </div>
+      <div class="carousel-item">
+        <img src="{{asset('template/assets/img/trpl3.jpg')}}" class="d-block w-100" alt="Slide 3">
+      </div>
+    </div>
+  </div>
+
+  <main class="login-container">
+    <div class="container">
 
       <section class="py-4 section register min-vh-100 d-flex flex-column align-items-center justify-content-center">
         <div class="container">
@@ -66,7 +111,7 @@
               <div class="py-4 d-flex justify-content-center">
                 <a href="index.html" class="w-auto logo d-flex align-items-center">
                   <img src="{{asset('template/assets/img/pei.png')}}" alt="">
-                  <span class="d-none d-lg-block" style="color:rgb(255, 255, 255)">E-Presensi</span>
+                  <span class="d-none d-lg-block" style="color: rgb(255, 255, 255)">E-Presensi</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -82,29 +127,32 @@
                   <form method="POST" action="{{ route('login') }}" class="row g-3 needs-validation" novalidate>
                     @csrf
 
-
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        @error('username')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                      @error('password')
+                      <div class="input-group has-validation">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                          <i class="bi bi-eye-fill"></i>
+                        </span>
+                        @error('password')
                           <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
+                            <strong>{{ $message }}</strong>
                           </span>
-                      @enderror
+                        @enderror
+                      </div>
                     </div>
 
                     <div class="col-12">
@@ -120,14 +168,6 @@
 
                 </div>
               </div>
-
-              {{-- <div class="credits" style="color: rgb(255, 255, 255)">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">Rizky Abiyu Raksa</a>
-              </div> --}}
 
             </div>
           </div>
@@ -152,6 +192,24 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('template/assets/js/main.js')}}"></script>
+
+  <!-- Custom JS for toggling password visibility -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const togglePassword = document.querySelector("#togglePassword");
+      const password = document.querySelector("#password");
+
+      togglePassword.addEventListener("click", function () {
+        // Toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+
+        // Toggle the eye / eye slash icon
+        this.classList.toggle("bi-eye-fill");
+        this.classList.toggle("bi-eye-slash-fill");
+      });
+    });
+  </script>
 
 </body>
 

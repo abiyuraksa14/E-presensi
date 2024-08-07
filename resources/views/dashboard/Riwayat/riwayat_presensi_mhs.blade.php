@@ -21,6 +21,24 @@
             <div class="card-body">
               <h5 class="card-title">Riwayat Presensi Mahasiswa</h5>
 
+            {{-- @role(['kaprodi']) --}}
+
+               {{-- <!-- Filter Form -->
+               {{-- <form method="GET" action="{{ route('riwayat_presensi_mhs') }}"> --}}
+                {{-- <div class="row mb-3">
+                  <div class="col-md-4">
+                    <input type="text" name="name" class="form-control" placeholder="Nama" value="{{ request('name') }}">
+                  </div>
+                  <div class="col-md-4">
+                    <input type="text" name="id_matkul" class="form-control" placeholder="ID Matakuliah" value="{{ request('id_matkul') }}">
+                  </div>
+                  <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                  </div>
+                </div>
+              </form> --}}
+              <!-- End Filter Form -->
+              {{-- @endrole --}}
               <!-- Table with hoverable rows -->
               <table class="table table-hover" id="myTable">
 
