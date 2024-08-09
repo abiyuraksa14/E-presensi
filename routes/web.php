@@ -11,6 +11,8 @@ use App\Http\Controllers\PersertaController;
 use App\Http\Controllers\PesertaController;
 use App\Models\User;
 use App\Http\Controllers\RiwayatPresensiController;
+use App\Models\Absensi;
+use App\Models\Jadwal;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,17 +27,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/home', function () {
     $user = Auth::user();
-    $roles = $user->roles->pluck('name'); // Mengambil nama role
+    $roles = $user->roles->pluck('name');
     $mhs = User::role('mahasiswa')->count();
     $dsn = User::role('dosen')->count();
-    return view('home', compact('roles', 'mhs','dsn'));
+    $allAbsensi = Absensi::all();
+
+    // Mengambil data semester dari jadwal
+    $semesters = Jadwal::distinct()->pluck('semester');
+
+    $labels = $allAbsensi->pluck('nama_mahasiswa')->unique();
+    $dataDurasi = $labels->map(function($label) use ($allAbsensi) {
+        return $allAbsensi->where('nama_mahasiswa', $label)->sum('durasi_presensi');
+    });
+
+    return view('home', compact('roles', 'mhs', 'dsn', 'labels', 'dataDurasi', 'semesters'));
 })->middleware(['auth'])->name('home');
+
 
 Route::get('/', function(){
     return redirect('/login');

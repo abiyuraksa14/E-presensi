@@ -37,17 +37,17 @@
         <ul id="componentss-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
                 <a href="/data-mahasiswa">
-                    <i class="bi bi-circle"></i><span>Tabel Mahasiswa</span>
+                    <i class="bi bi-circle"></i><span>Akun Mahasiswa</span>
                 </a>
             </li>
             <li>
                 <a href="/data-dosen">
-                    <i class="bi bi-circle"></i><span>Tabel Dosen</span>
+                    <i class="bi bi-circle"></i><span>Akun Dosen</span>
                 </a>
             </li>
             <li>
                 <a href="/data-admin">
-                    <i class="bi bi-circle"></i><span>Tabel Admin</span>
+                    <i class="bi bi-circle"></i><span>Akun Admin</span>
                 </a>
             </li>
 

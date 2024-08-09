@@ -15,6 +15,7 @@
     </div><!-- End Page Title -->
 
     <center>
+
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
@@ -31,6 +32,7 @@
         <br><br>
         <div id="qr-reader" style="width:50%;"></div></center>
     <div id="qr-reader-results"></div>
+
 
     {{-- <div class="row">
         <div class="col-md-6">
