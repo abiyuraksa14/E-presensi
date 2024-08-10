@@ -15,7 +15,7 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
+    <section class="section" style="width: fit-content">
       <div class="row">
           <div class="card">
             <div class="card-body">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulController;
@@ -28,27 +29,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/home', function () {
-    $user = Auth::user();
-    $roles = $user->roles->pluck('name');
-    $mhs = User::role('mahasiswa')->count();
-    $dsn = User::role('dosen')->count();
-    $allAbsensi = Absensi::all();
+Route::get('/home', [HomeController::class, 'grafik'])->name('absensi.grafik')->middleware(['auth']);
 
-    // Mengambil data semester dari jadwal
-    $semesters = Jadwal::distinct()->pluck('semester');
-
-    $labels = $allAbsensi->pluck('nama_mahasiswa')->unique();
-    $dataDurasi = $labels->map(function($label) use ($allAbsensi) {
-        return $allAbsensi->where('nama_mahasiswa', $label)->sum('durasi_presensi');
-    });
-
-    return view('home', compact('roles', 'mhs', 'dsn', 'labels', 'dataDurasi', 'semesters'));
-})->middleware(['auth'])->name('home');
 
 
 Route::get('/', function(){

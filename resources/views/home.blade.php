@@ -57,81 +57,79 @@
                 </div><!-- End Dosen Card -->
 
                <!-- Filter Form -->
-<div class="col-12">
+  <!-- Filter Form -->
+  <div class="col-12">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Filter Durasi Presensi</h5>
 
-            <form action="#" method="GET">
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label for="semester" class="form-label">Semester</label>
-                        <select name="semester" id="semester" class="form-select">
-                            @foreach($semesters as $semester)
-                                <option value="{{ $semester }}">{{ $semester }}</option>
+            <form id="filterForm" method="GET" action="{{ route('absensi.grafik') }}">
+                @csrf
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="matakuliah">Pilih Mata Kuliah</label>
+                        <select id="matakuliah" name="matakuliah" class="form-select">
+                            <option value="">Semua Mata Kuliah</option>
+                            @foreach($matakuliahList as $matakuliah)
+                                <option value="{{ $matakuliah->kd_matkul }}">{{ $matakuliah->nama_matkul }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <label for="id_dosen" class="form-label">Dosen</label>
-                        <select name="id_dosen" id="id_dosen" class="form-select">
-                            @foreach($dosens as $dosen)
-                                <option value="{{ $dosen->id }}">{{ $dosen->name }}</option>
+                    <div class="col">
+                        <label for="peserta">Pilih Mahasiswa</label>
+                        <select id="peserta" name="peserta" class="form-select">
+                            <option value="">Semua Mahasiswa</option>
+                            @foreach($pesertaList as $peserta)
+                                <option value="{{ $peserta->id }}">{{ $peserta->user->name }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <label for="id_mahasiswa" class="form-label">Mahasiswa</label>
-                        <select name="id_mahasiswa" id="id_mahasiswa" class="form-select">
-                            @foreach($mahasiswas as $mahasiswa)
-                                <option value="{{ $mahasiswa->id }}">{{ $mahasiswa->name }}</option>
-                            @endforeach
-                        </select>
+                    <div class="col">
+                        <button type="submit" class="mt-4 btn btn-primary">Tampilkan Grafik</button>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Filter</button>
             </form>
         </div>
     </div>
 </div>
 
-                <!-- Durasi Presensi Chart -->
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Grafik Durasi Presensi</h5>
-                            <canvas id="durasiPresensiChart"></canvas>
-                        </div>
-                    </div>
-                </div><!-- End Durasi Presensi Chart -->
-            </div>
+<!-- Durasi Presensi Chart -->
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Grafik Durasi Presensi</h5>
+            <canvas id="durasiPresensiChart"></canvas>
         </div>
     </div>
+</div><!-- End Durasi Presensi Chart -->
+</div>
+</div>
+</div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var ctx = document.getElementById('durasiPresensiChart').getContext('2d');
-    var chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: @json($labels), // Labels untuk mahasiswa/dosen
-            datasets: [{
-                label: 'Durasi Presensi (menit)',
-                data: @json($dataDurasi), // Data durasi presensi
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+var ctx = document.getElementById('durasiPresensiChart').getContext('2d');
+var chart = new Chart(ctx, {
+type: 'bar',
+data: {
+labels: @json($labels), // Labels untuk mahasiswa
+datasets: [{
+label: 'Durasi Presensi (menit)',
+data: @json($dataDurasi), // Data durasi presensi
+backgroundColor: 'rgba(75, 192, 192, 0.2)',
+borderColor: 'rgba(75, 192, 192, 1)',
+borderWidth: 1
+}]
+},
+options: {
+scales: {
+y: {
+    beginAtZero: true
+}
+}
+}
+});
 </script>
 
 @endsection
